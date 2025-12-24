@@ -1,6 +1,6 @@
 async function loadGitHubData() {
     try {
-        const res = await fetch(CONFIG.dataUrl + '?t=' + Date.now());
+        const res = await fetch(CONFIG.dataUrl + '?t=' + Date.now(), { cache: 'no-store' });
         if (!res.ok) throw new Error('No data');
         const data = await res.json();
         renderUpdated(data.updated_at);
