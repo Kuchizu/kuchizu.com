@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Kuchizu</title>
+    <meta name="description" content="Kuchizu — DevOps Engineer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="canonical" href="https://kuchizu.com/">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kuchizu" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://kuchizu.com/" />
+    <meta property="og:title" content="Kuchizu" />
+    <meta property="og:description" content="Kuchizu — DevOps Engineer" />
+    <meta property="og:image" content="https://kuchizu.com/images/Kuchizu1200x630.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kuchizu" />
+
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+</head>
+<body>
+    <main class="layout">
+        <!-- Left: 2x2 Grid -->
+        <aside class="sidebar sidebar-left">
+            <section class="github" id="github">
+                <div class="github-graph" id="github-graph"></div>
+                <div class="gh-stats-grid" id="gh-stats-grid">
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="stat-repos">-</span>
+                        <span class="gh-stat-label">Repos</span>
+                    </div>
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="stat-stars">-</span>
+                        <span class="gh-stat-label">Stars</span>
+                    </div>
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="stat-followers">-</span>
+                        <span class="gh-stat-label">Followers</span>
+                    </div>
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="stat-following">-</span>
+                        <span class="gh-stat-label">Following</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="languages" id="languages">
+                <h3 class="languages-title">Languages</h3>
+                <div class="languages-bar" id="languages-bar"></div>
+                <div class="languages-list" id="languages-list"></div>
+            </section>
+
+            <section class="pinned" id="pinned">
+                <h3 class="pinned-title">Pinned</h3>
+                <div class="pinned-list" id="pinned-list">Loading...</div>
+            </section>
+
+            <section class="activity" id="activity">
+                <h3 class="activity-title">Activity</h3>
+                <div class="activity-list" id="activity-list">Loading...</div>
+            </section>
+        </aside>
+
+        <!-- Center: Profile -->
+        <div class="center">
+            <img src="images/Kuchizu128x128.png" alt="Kuchizu" class="avatar">
+
+            <h1>Kuchizu</h1>
+            <p class="bio">DevOps Engineer</p>
+
+            <p class="timezone">
+                <span class="time" id="time"></span> · UTC+3 · <span id="updated"></span>
+            </p>
+
+            <nav class="links">
+                <a href="https://t.me/Kuchizu" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    <span>Telegram</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/Kuchizu" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                    <span>GitHub</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#" id="email-btn" data-email="legolashacker0@gmail.com">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                    </svg>
+                    <span id="email-text">Email</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/Kuchizu_" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                    </svg>
+                    <span>X</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://discord.com/users/Kuchizu" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                    </svg>
+                    <span>Discord</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </nav>
+
+            <footer class="footer">
+                © 2025
+            </footer>
+        </div>
+
+        <!-- Right: 2x2 Grid -->
+        <aside class="sidebar sidebar-right">
+            <section class="steam" id="steam">
+                <div class="steam-header">
+                    <img class="steam-avatar" id="steam-avatar" src="" alt="">
+                    <div class="steam-status">
+                        <span class="steam-name" id="steam-name">Loading...</span>
+                        <span class="steam-state" id="steam-state"></span>
+                    </div>
+                </div>
+                <div class="steam-playing" id="steam-playing"></div>
+                <div class="steam-recent" id="steam-recent">
+                    <h4 class="steam-recent-title">Recently Played</h4>
+                    <div class="steam-games" id="steam-games"></div>
+                </div>
+                <div class="steam-footer" id="steam-footer"></div>
+            </section>
+
+            <section class="servers" id="servers">
+                <h3 class="servers-title">Servers</h3>
+                <div class="servers-list" id="servers-list"></div>
+                <div class="servers-footer" id="servers-footer"></div>
+            </section>
+
+            <section class="spotify" id="spotify">
+                <div class="spotify-header">
+                    <svg class="spotify-logo" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    <span class="spotify-title">Spotify</span>
+                </div>
+                <div class="spotify-now-playing" id="spotify-now-playing"></div>
+                <div class="spotify-recent-title">Recently Played</div>
+                <div class="spotify-list" id="spotify-list"></div>
+            </section>
+
+            <section class="shikimori" id="shikimori">
+                <div class="shikimori-header">
+                    <img class="shikimori-avatar" id="shikimori-avatar" src="" alt="">
+                    <div class="shikimori-info">
+                        <span class="shikimori-name" id="shikimori-name">Loading...</span>
+                        <span class="shikimori-stats" id="shikimori-stats"></span>
+                    </div>
+                </div>
+                <div class="shikimori-list" id="shikimori-list"></div>
+                <div class="shikimori-footer" id="shikimori-footer"></div>
+            </section>
+        </aside>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/github.js"></script>
+    <script src="js/steam.js"></script>
+    <script src="js/spotify.js"></script>
+    <script src="js/shikimori.js"></script>
+    <script src="js/servers.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
