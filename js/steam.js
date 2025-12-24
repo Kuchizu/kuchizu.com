@@ -17,6 +17,7 @@ function renderSteam(steam) {
     if (avatarEl && steam.avatar) {
         avatarEl.src = steam.avatar;
         avatarEl.alt = steam.personaname;
+        avatarEl.classList.remove('skeleton');
     }
     nameEl.textContent = steam.personaname;
 

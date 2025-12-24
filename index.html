@@ -32,7 +32,9 @@
         <!-- Left: 2x2 Grid -->
         <aside class="sidebar sidebar-left">
             <section class="github" id="github">
-                <div class="github-graph" id="github-graph"></div>
+                <div class="github-graph" id="github-graph">
+                    <div class="skeleton" style="width:100%;height:56px"></div>
+                </div>
                 <div class="gh-stats-grid" id="gh-stats-grid">
                     <div class="gh-stat">
                         <span class="gh-stat-value" id="stat-repos">-</span>
@@ -55,18 +57,28 @@
 
             <section class="languages" id="languages">
                 <h3 class="languages-title">Languages</h3>
-                <div class="languages-bar" id="languages-bar"></div>
-                <div class="languages-list" id="languages-list"></div>
+                <div class="languages-bar" id="languages-bar"><div class="skeleton skeleton-bar" style="width:100%"></div></div>
+                <div class="languages-list" id="languages-list">
+                    <div class="skeleton skeleton-text" style="width:80%"></div>
+                    <div class="skeleton skeleton-text" style="width:60%"></div>
+                </div>
             </section>
 
             <section class="pinned" id="pinned">
                 <h3 class="pinned-title">Pinned</h3>
-                <div class="pinned-list" id="pinned-list">Loading...</div>
+                <div class="pinned-list" id="pinned-list">
+                    <div class="skeleton" style="width:100%;height:52px;margin-bottom:0.375rem"></div>
+                    <div class="skeleton" style="width:100%;height:52px"></div>
+                </div>
             </section>
 
             <section class="activity" id="activity">
                 <h3 class="activity-title">Activity</h3>
-                <div class="activity-list" id="activity-list">Loading...</div>
+                <div class="activity-list" id="activity-list">
+                    <div class="skeleton skeleton-text" style="width:90%"></div>
+                    <div class="skeleton skeleton-text" style="width:85%"></div>
+                    <div class="skeleton skeleton-text" style="width:75%"></div>
+                </div>
             </section>
         </aside>
 
@@ -138,23 +150,29 @@
         <aside class="sidebar sidebar-right">
             <section class="steam" id="steam">
                 <div class="steam-header">
-                    <img class="steam-avatar" id="steam-avatar" src="" alt="">
+                    <img class="steam-avatar skeleton" id="steam-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
                     <div class="steam-status">
-                        <span class="steam-name" id="steam-name">Loading...</span>
+                        <span class="steam-name" id="steam-name">...</span>
                         <span class="steam-state" id="steam-state"></span>
                     </div>
                 </div>
                 <div class="steam-playing" id="steam-playing"></div>
                 <div class="steam-recent" id="steam-recent">
                     <h4 class="steam-recent-title">Recently Played</h4>
-                    <div class="steam-games" id="steam-games"></div>
+                    <div class="steam-games" id="steam-games">
+                        <div class="skeleton skeleton-text" style="width:90%"></div>
+                        <div class="skeleton skeleton-text" style="width:85%"></div>
+                    </div>
                 </div>
                 <div class="steam-footer" id="steam-footer"></div>
             </section>
 
             <section class="servers" id="servers">
                 <h3 class="servers-title">Servers</h3>
-                <div class="servers-list" id="servers-list"></div>
+                <div class="servers-list" id="servers-list">
+                    <div class="skeleton" style="width:100%;height:40px;margin-bottom:0.375rem"></div>
+                    <div class="skeleton" style="width:100%;height:40px"></div>
+                </div>
                 <div class="servers-footer" id="servers-footer"></div>
             </section>
 
@@ -167,18 +185,24 @@
                 </div>
                 <div class="spotify-now-playing" id="spotify-now-playing"></div>
                 <div class="spotify-recent-title">Recently Played</div>
-                <div class="spotify-list" id="spotify-list"></div>
+                <div class="spotify-list" id="spotify-list">
+                    <div class="skeleton skeleton-text" style="width:90%"></div>
+                    <div class="skeleton skeleton-text" style="width:80%"></div>
+                </div>
             </section>
 
             <section class="shikimori" id="shikimori">
                 <div class="shikimori-header">
-                    <img class="shikimori-avatar" id="shikimori-avatar" src="" alt="">
+                    <img class="shikimori-avatar skeleton" id="shikimori-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
                     <div class="shikimori-info">
-                        <span class="shikimori-name" id="shikimori-name">Loading...</span>
+                        <span class="shikimori-name" id="shikimori-name">...</span>
                         <span class="shikimori-stats" id="shikimori-stats"></span>
                     </div>
                 </div>
-                <div class="shikimori-list" id="shikimori-list"></div>
+                <div class="shikimori-list" id="shikimori-list">
+                    <div class="skeleton skeleton-text" style="width:90%"></div>
+                    <div class="skeleton skeleton-text" style="width:85%"></div>
+                </div>
                 <div class="shikimori-footer" id="shikimori-footer"></div>
             </section>
         </aside>

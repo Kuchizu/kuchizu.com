@@ -16,6 +16,7 @@ function renderShikimori(shikimori) {
     if (avatarEl && shikimori.avatar) {
         avatarEl.src = shikimori.avatar;
         avatarEl.alt = shikimori.nickname;
+        avatarEl.classList.remove('skeleton');
     }
     if (nameEl) nameEl.textContent = shikimori.nickname;
     if (statsEl) statsEl.textContent = `${shikimori.watching} watching`;
