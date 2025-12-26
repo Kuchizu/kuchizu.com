@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kuchizu-portfolio
+  namespace: kuchizu-portfolio
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+  - hosts:
+    - kuchizu.com
+    secretName: kuchizu-portfolio-tls
+  rules:
+  - host: kuchizu.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kuchizu-portfolio
+            port:
+              number: 80

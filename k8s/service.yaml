@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuchizu-portfolio
+  namespace: kuchizu-portfolio
+  labels:
+    app: kuchizu-portfolio
+spec:
+  type: ClusterIP
+  selector:
+    app: kuchizu-portfolio
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  sessionAffinity: None

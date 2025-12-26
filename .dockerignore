@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+.github
+
+# Node modules and dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+dist
+build
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+*.md
+
+# Kubernetes
+k8s
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Scripts
+scripts
+
+# Tools
+tools
+
+# Logs
+*.log

@@ -152,6 +152,11 @@ h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-botto
 .servers-footer { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); font-size: 0.55rem; color: var(--fg-muted); }
 
 .footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.75rem; color: var(--fg-muted); letter-spacing: 0.02em; }
+.pod-info { display: inline-flex; align-items: center; gap: 0.25rem; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.7rem; color: #326ce5; cursor: help; transition: color 0.2s; vertical-align: middle; }
+.pod-info:hover { color: #528bff; }
+.pod-icon { width: 0.85rem; height: 0.85rem; flex-shrink: 0; }
+.commit-link { color: var(--fg-muted); text-decoration: none; transition: color 0.2s; }
+.commit-link:hover { color: var(--fg); }
 
 .steam { padding: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
 .steam:hover { border-color: #3f3f46; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
