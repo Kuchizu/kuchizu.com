@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steam-service
+  namespace: kuchizu-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: steam-service
+  template:
+    metadata:
+      labels:
+        app: steam-service
+    spec:
+      containers:
+      - name: steam
+        image: kuchizu/steam-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3001
+        env:
+        - name: STEAM_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: portfolio-secrets
+              key: STEAM_API_KEY
+        - name: STEAM_USERNAME
+          value: "Kuchizu"
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3001
+          initialDelaySeconds: 5
+          periodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: steam-service
+  namespace: kuchizu-portfolio
+spec:
+  selector:
+    app: steam-service
+  ports:
+  - port: 80
+    targetPort: 3001

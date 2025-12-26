@@ -15,6 +15,15 @@
     100% { background-position: 200% 0; }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0.5; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
 .skeleton {
     background: linear-gradient(90deg, var(--border) 25%, #3f3f46 50%, var(--border) 75%);
     background-size: 200% 100%;
@@ -191,13 +200,20 @@ h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-botto
 
 .spotify-now-playing { display: none; margin-bottom: 0.5rem; }
 .spotify-now-playing.active { display: block; }
-.spotify-current { display: flex; gap: 0.5rem; padding: 0.5rem; background: linear-gradient(135deg, #1a1a1a 0%, #1db954 200%); border-radius: 0.375rem; text-decoration: none; transition: opacity 0.15s; }
+.spotify-current { display: flex; gap: 0.5rem; padding: 0.5rem; background: linear-gradient(135deg, #1a1a1a 0%, #1db954 200%); border-radius: 0.375rem; text-decoration: none; transition: all 0.3s ease; }
 .spotify-current:hover { opacity: 0.9; }
+.spotify-current.paused { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 200%); opacity: 0.7; filter: grayscale(30%); }
+.spotify-current.paused:hover { opacity: 0.85; }
+.spotify-current.paused .spotify-current-label { color: var(--fg-muted); }
 .spotify-current-img { width: 48px; height: 48px; border-radius: 4px; flex-shrink: 0; object-fit: cover; }
 .spotify-current-info { min-width: 0; flex: 1; }
 .spotify-current-label { font-size: 0.5rem; color: #1db954; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.125rem; }
 .spotify-current-name { font-size: 0.65rem; font-weight: 500; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .spotify-current-artist { font-size: 0.55rem; color: var(--fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spotify-progress { height: 3px; background: rgba(255,255,255,0.2); border-radius: 2px; margin-top: 0.375rem; overflow: hidden; }
+.spotify-progress-bar { height: 100%; background: #1db954; border-radius: 2px; transition: width 0.3s linear; }
+.spotify-current.paused .spotify-progress-bar { background: var(--fg-muted); }
+.spotify-time { display: flex; justify-content: space-between; font-size: 0.45rem; color: var(--fg-muted); margin-top: 0.125rem; }
 
 .spotify-recent-title { font-size: 0.65rem; font-weight: 500; color: var(--fg-muted); margin-bottom: 0.375rem; }
 .spotify-list { display: flex; flex-direction: column; gap: 0.375rem; }

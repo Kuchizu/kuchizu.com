@@ -33,7 +33,7 @@ async function getGitHubData() {
         pinned: repos.filter(r => !r.fork).sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 4)
             .map(r => ({ name: r.name, description: r.description, url: r.html_url, language: r.language, stars: r.stargazers_count, forks: r.forks_count })),
         activity: events.filter(e => ['PushEvent', 'CreateEvent', 'IssuesEvent', 'PullRequestEvent', 'WatchEvent'].includes(e.type)).slice(0, 5)
-            .map(e => ({ type: e.type, repo: e.repo.name, payload: { action: e.payload.action, ref_type: e.payload.ref_type, commits: e.payload.commits?.length || 0 }, created_at: e.created_at })),
+            .map(e => ({ type: e.type, repo: e.repo.name, payload: { action: e.payload.action, ref_type: e.payload.ref_type, commits: e.payload.size || e.payload.commits?.length || 0 }, created_at: e.created_at })),
         contributions: (contribRes.contributions || []).slice(-49).map(c => ({ date: c.date, count: c.count, level: c.level }))
     };
 }

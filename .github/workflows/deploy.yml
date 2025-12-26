@@ -37,10 +37,14 @@ jobs:
             # Build images
             docker build --no-cache -t kuchizu/portfolio:latest .
             docker build --no-cache -f Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest .
+            docker build --no-cache -t kuchizu/spotify-service:latest services/spotify/
+            docker build --no-cache -t kuchizu/steam-service:latest services/steam/
 
             # Import to k3s
             docker save kuchizu/portfolio:latest | sudo k3s ctr images import -
             docker save kuchizu/portfolio-fetcher:latest | sudo k3s ctr images import -
+            docker save kuchizu/spotify-service:latest | sudo k3s ctr images import -
+            docker save kuchizu/steam-service:latest | sudo k3s ctr images import -
 
             # Apply k8s resources
             sudo kubectl apply -f k8s/pvc.yaml
@@ -53,15 +57,23 @@ jobs:
               --from-literal=SPOTIFY_REFRESH_TOKEN="$SPOTIFY_REFRESH_TOKEN" \
               --from-literal=SERVERS="${SERVERS:-[]}"
             sudo kubectl apply -f k8s/cronjob.yaml
+            sudo kubectl apply -f k8s/deployment.yaml
+            sudo kubectl apply -f k8s/spotify-service.yaml
+            sudo kubectl apply -f k8s/steam-service.yaml
+            sudo kubectl apply -f k8s/ingress.yaml
 
             # Trigger initial data fetch
             sudo kubectl create job --from=cronjob/portfolio-data-fetcher portfolio-data-init -n kuchizu-portfolio 2>/dev/null || true
             sudo kubectl wait --for=condition=complete job/portfolio-data-init -n kuchizu-portfolio --timeout=60s 2>/dev/null || true
             sudo kubectl delete job portfolio-data-init -n kuchizu-portfolio 2>/dev/null || true
 
-            # Restart deployment
-            sudo kubectl delete pods -n kuchizu-portfolio -l app=kuchizu-portfolio
+            # Restart deployments
+            sudo kubectl rollout restart deployment/kuchizu-portfolio -n kuchizu-portfolio
+            sudo kubectl rollout restart deployment/spotify-service -n kuchizu-portfolio
+            sudo kubectl rollout restart deployment/steam-service -n kuchizu-portfolio
             sudo kubectl rollout status deployment/kuchizu-portfolio -n kuchizu-portfolio --timeout=120s
+            sudo kubectl rollout status deployment/spotify-service -n kuchizu-portfolio --timeout=60s
+            sudo kubectl rollout status deployment/steam-service -n kuchizu-portfolio --timeout=60s
 
       - name: Purge Cloudflare Cache
         run: |

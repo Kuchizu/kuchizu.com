@@ -1,3 +1,5 @@
+let lastTrackUrl = null;
+
 function renderSpotify(spotify) {
     const section = document.getElementById('spotify');
     if (!section) return;
@@ -7,41 +9,122 @@ function renderSpotify(spotify) {
         return;
     }
 
-    const nowPlayingEl = document.getElementById('spotify-now-playing');
-    const listEl = document.getElementById('spotify-list');
+    renderNowPlaying(spotify.currentlyPlaying);
+    renderRecentTracks(spotify.recentTracks);
 
-    if (nowPlayingEl) {
-        if (spotify.currentlyPlaying) {
-            const cp = spotify.currentlyPlaying;
-            nowPlayingEl.innerHTML = `
-                <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current">
-                    <img class="spotify-current-img" src="${cp.image}" alt="${cp.album}" loading="lazy">
-                    <div class="spotify-current-info">
-                        <div class="spotify-current-label">Now Playing</div>
-                        <div class="spotify-current-name">${cp.name}</div>
-                        <div class="spotify-current-artist">${cp.artist}</div>
+    // Start real-time polling
+    startSpotifyPolling();
+}
+
+let progressInterval = null;
+let currentProgress = 0;
+let currentDuration = 0;
+let isPlaying = false;
+
+function renderNowPlaying(cp) {
+    const el = document.getElementById('spotify-now-playing');
+    if (!el) return;
+
+    if (cp && cp.track) {
+        const isNew = lastTrackUrl !== cp.url;
+        lastTrackUrl = cp.url;
+        currentProgress = cp.progress || 0;
+        currentDuration = cp.duration || 1;
+        isPlaying = cp.playing;
+
+        const progressPercent = (currentProgress / currentDuration) * 100;
+
+        el.innerHTML = `
+            <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current${isNew ? ' fade-in' : ''}${cp.playing ? '' : ' paused'}">
+                <img class="spotify-current-img" src="${cp.image}" alt="${cp.album || cp.track}" loading="lazy">
+                <div class="spotify-current-info">
+                    <div class="spotify-current-label">${cp.playing ? 'Now Playing' : 'Paused'}</div>
+                    <div class="spotify-current-name">${cp.name || cp.track}</div>
+                    <div class="spotify-current-artist">${cp.artist}</div>
+                    <div class="spotify-progress">
+                        <div class="spotify-progress-bar" style="width: ${progressPercent}%"></div>
                     </div>
-                </a>
-            `;
-            nowPlayingEl.classList.add('active');
-        } else {
-            nowPlayingEl.classList.remove('active');
-        }
+                    <div class="spotify-time">
+                        <span>${formatTime(currentProgress)}</span>
+                        <span>${formatTime(currentDuration)}</span>
+                    </div>
+                </div>
+            </a>
+        `;
+        el.classList.add('active');
+
+        startProgressAnimation();
+    } else {
+        el.classList.remove('active');
+        lastTrackUrl = null;
+        stopProgressAnimation();
+    }
+}
+
+function formatTime(ms) {
+    const s = Math.floor(ms / 1000);
+    const m = Math.floor(s / 60);
+    return `${m}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function startProgressAnimation() {
+    stopProgressAnimation();
+    if (!isPlaying) return;
+
+    progressInterval = setInterval(() => {
+        currentProgress += 1000;
+        if (currentProgress > currentDuration) currentProgress = currentDuration;
+
+        const bar = document.querySelector('.spotify-progress-bar');
+        const timeEl = document.querySelector('.spotify-time span:first-child');
+        if (bar) bar.style.width = `${(currentProgress / currentDuration) * 100}%`;
+        if (timeEl) timeEl.textContent = formatTime(currentProgress);
+    }, 1000);
+}
+
+function stopProgressAnimation() {
+    if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
+    }
+}
+
+function renderRecentTracks(tracks) {
+    const el = document.getElementById('spotify-list');
+    if (!el) return;
+
+    if (tracks?.length) {
+        el.innerHTML = tracks.map(t => `
+            <a href="${t.url}" target="_blank" rel="noopener" class="spotify-track">
+                <img class="spotify-track-img" src="${t.image}" alt="${t.name}" loading="lazy">
+                <div class="spotify-track-info">
+                    <div class="spotify-track-name">${t.name}</div>
+                    <div class="spotify-track-artist">${t.artist}</div>
+                </div>
+            </a>
+        `).join('');
+    } else {
+        el.innerHTML = '<span style="color:var(--fg-muted);font-size:0.6rem">No recent tracks</span>';
+    }
+}
+
+let pollingInterval = null;
+
+function startSpotifyPolling() {
+    if (pollingInterval) return;
+
+    async function poll() {
+        try {
+            const res = await fetch('/api/spotify/now-playing');
+            if (res.ok) {
+                const data = await res.json();
+                if (!data.error) {
+                    renderNowPlaying(data);
+                }
+            }
+        } catch {}
     }
 
-    if (listEl) {
-        if (spotify.recentTracks?.length) {
-            listEl.innerHTML = spotify.recentTracks.map(t => `
-                <a href="${t.url}" target="_blank" rel="noopener" class="spotify-track">
-                    <img class="spotify-track-img" src="${t.image}" alt="${t.name}" loading="lazy">
-                    <div class="spotify-track-info">
-                        <div class="spotify-track-name">${t.name}</div>
-                        <div class="spotify-track-artist">${t.artist}</div>
-                    </div>
-                </a>
-            `).join('');
-        } else {
-            listEl.innerHTML = '<span style="color:var(--fg-muted);font-size:0.6rem">No recent tracks</span>';
-        }
-    }
+    poll();
+    pollingInterval = setInterval(poll, 5000);
 }

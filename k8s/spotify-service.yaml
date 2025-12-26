@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spotify-service
+  namespace: kuchizu-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spotify-service
+  template:
+    metadata:
+      labels:
+        app: spotify-service
+    spec:
+      containers:
+      - name: spotify
+        image: kuchizu/spotify-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - secretRef:
+            name: portfolio-secrets
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spotify-service
+  namespace: kuchizu-portfolio
+spec:
+  selector:
+    app: spotify-service
+  ports:
+  - port: 80
+    targetPort: 3000

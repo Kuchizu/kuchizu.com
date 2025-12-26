@@ -35,9 +35,6 @@ Dockerfile
 .dockerignore
 docker-compose.yml
 
-# Scripts
-scripts
-
 # Tools
 tools
 

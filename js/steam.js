@@ -1,3 +1,5 @@
+let lastGameName = null;
+
 function renderSteam(steam) {
     const section = document.getElementById('steam');
     if (!section) return;
@@ -9,8 +11,6 @@ function renderSteam(steam) {
 
     const avatarEl = document.getElementById('steam-avatar');
     const nameEl = document.getElementById('steam-name');
-    const stateEl = document.getElementById('steam-state');
-    const playingEl = document.getElementById('steam-playing');
     const gamesEl = document.getElementById('steam-games');
     const footerEl = document.getElementById('steam-footer');
 
@@ -21,19 +21,7 @@ function renderSteam(steam) {
     }
     nameEl.textContent = steam.personaname;
 
-    if (steam.inGame) {
-        stateEl.textContent = 'In-Game';
-        stateEl.className = 'steam-state in-game';
-        playingEl.innerHTML = `
-            <div class="steam-playing-label">Now Playing</div>
-            <div class="steam-playing-game">${steam.inGame}</div>
-        `;
-        playingEl.classList.add('active');
-    } else {
-        stateEl.textContent = steam.status;
-        stateEl.className = 'steam-state' + (steam.isOnline ? ' online' : '');
-        playingEl.classList.remove('active');
-    }
+    updateSteamStatus(steam);
 
     if (steam.recentGames?.length) {
         gamesEl.innerHTML = steam.recentGames.slice(0, 3).map(g => `
@@ -50,4 +38,55 @@ function renderSteam(steam) {
     }
 
     footerEl.innerHTML = `<a href="${steam.profileurl}" target="_blank" rel="noopener" style="color:var(--fg-muted);text-decoration:none;">${steam.totalGames} games</a>`;
+
+    // Start real-time polling
+    startSteamPolling();
+}
+
+function updateSteamStatus(data) {
+    const stateEl = document.getElementById('steam-state');
+    const playingEl = document.getElementById('steam-playing');
+    if (!stateEl || !playingEl) return;
+
+    const inGame = data.inGame;
+    const isNew = lastGameName !== inGame;
+    lastGameName = inGame;
+
+    if (inGame) {
+        stateEl.textContent = 'In-Game';
+        stateEl.className = 'steam-state in-game';
+        playingEl.innerHTML = `
+            <div class="steam-playing-inner${isNew ? ' fade-in' : ''}">
+                <div class="steam-playing-label">Now Playing</div>
+                <div class="steam-playing-game">${inGame}</div>
+            </div>
+        `;
+        playingEl.classList.add('active');
+    } else {
+        stateEl.textContent = data.status || (data.online ? 'Online' : 'Offline');
+        stateEl.className = 'steam-state' + (data.online || data.isOnline ? ' online' : '');
+        playingEl.classList.remove('active');
+        lastGameName = null;
+    }
+}
+
+let steamPollingInterval = null;
+
+function startSteamPolling() {
+    if (steamPollingInterval) return;
+
+    async function poll() {
+        try {
+            const res = await fetch('/api/steam/status');
+            if (res.ok) {
+                const data = await res.json();
+                if (!data.error) {
+                    updateSteamStatus(data);
+                }
+            }
+        } catch {}
+    }
+
+    poll();
+    steamPollingInterval = setInterval(poll, 10000); // Every 10 seconds
 }
