@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-26T22:47:34.849Z",
+  "updated_at": "2025-12-26T23:26:17.293Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -66,6 +66,14 @@
         "payload": {
           "commits": 0
         },
+        "created_at": "2025-12-26T22:51:08Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
         "created_at": "2025-12-26T22:24:35Z"
       },
       {
@@ -91,14 +99,6 @@
           "commits": 0
         },
         "created_at": "2025-12-26T21:57:38Z"
-      },
-      {
-        "type": "PushEvent",
-        "repo": "Kuchizu/kuchizu.com",
-        "payload": {
-          "commits": 0
-        },
-        "created_at": "2025-12-26T21:36:13Z"
       }
     ],
     "contributions": [
@@ -413,13 +413,19 @@
   },
   "spotify": {
     "currentlyPlaying": {
-      "name": "EGO",
-      "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
-      "album": "Transparency",
-      "image": "/data/images/a0e4d91c39be.jpg",
-      "url": "https://open.spotify.com/track/5UN83Q2b8j2s5WjhY3nVUO"
+      "name": "ただ君に晴れ",
+      "artist": "ヨルシカ",
+      "album": "負け犬にアンコールはいらない",
+      "image": "/data/images/f2cc1d07568f.jpg",
+      "url": "https://open.spotify.com/track/3wJHCry960drNlAUGrJLmz"
     },
     "recentTracks": [
+      {
+        "name": "Productivity Hell",
+        "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
+        "image": "/data/images/5ba6ef4b2c87.jpg",
+        "url": "https://open.spotify.com/track/5eIQEAenaBTlWbGjVaRyqo"
+      },
       {
         "name": "Delusion Tax",
         "artist": "AmoebaPi, Hatsune Miku",
@@ -431,12 +437,6 @@
         "artist": "AmoebaPi, Hatsune Miku",
         "image": "/data/images/fb1129db4cec.jpg",
         "url": "https://open.spotify.com/track/5aOMOMatDKmcyhMygcyM2k"
-      },
-      {
-        "name": "Hologram Touch",
-        "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
-        "image": "/data/images/0bd3b4662f27.jpg",
-        "url": "https://open.spotify.com/track/4ek3POEn3tpIoSILjUvevZ"
       }
     ]
   },
@@ -444,12 +444,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 90,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.5,
-        "memory": 9459
+        "cpu": 0.4,
+        "memory": 9474
       }
     },
     {
@@ -459,19 +459,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 1.2,
-        "memory": 4285
+        "cpu": 781,
+        "memory": 3946
       }
     },
     {
       "name": "master",
       "uptime": 128,
-      "memory": 48,
+      "memory": 43,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 6.9,
-        "memory": 5424
+        "cpu": 5.5,
+        "memory": 4569
       }
     }
   ]
