@@ -32,11 +32,14 @@ function renderNowPlaying(cp) {
         const isNewImage = lastImageUrl !== cp.image;
         lastTrackUrl = cp.url;
         lastImageUrl = cp.image;
-
-        // Sync progress with server response time
-        progressStart = cp.progress || 0;
-        progressTimestamp = Date.now();
         currentDuration = cp.duration || 1;
+
+        // Only sync progress on new track or resume from pause
+        if (isNewTrack || (!isPlaying && cp.playing)) {
+            progressStart = cp.progress || 0;
+            progressTimestamp = Date.now();
+        }
+
         isPlaying = cp.playing;
 
         // Only rebuild if new track, otherwise update in place
