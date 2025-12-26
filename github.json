@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-26T22:29:05.096Z",
+  "updated_at": "2025-12-26T22:47:34.849Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -413,30 +413,30 @@
   },
   "spotify": {
     "currentlyPlaying": {
-      "name": "Hologram Touch",
-      "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
-      "album": "THE END OF EVERYTING, Vol. 2",
-      "image": "/data/images/575bb17b69a3.jpg",
-      "url": "https://open.spotify.com/track/4ek3POEn3tpIoSILjUvevZ"
+      "name": "EGO",
+      "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
+      "album": "Transparency",
+      "image": "/data/images/a0e4d91c39be.jpg",
+      "url": "https://open.spotify.com/track/5UN83Q2b8j2s5WjhY3nVUO"
     },
     "recentTracks": [
       {
-        "name": "Tears",
-        "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
-        "image": "/data/images/0bd3b4662f27.jpg",
-        "url": "https://open.spotify.com/track/2rsfOZVZZtR9Ui0lAmI3eS"
+        "name": "Delusion Tax",
+        "artist": "AmoebaPi, Hatsune Miku",
+        "image": "/data/images/fb1129db4cec.jpg",
+        "url": "https://open.spotify.com/track/0cOrodcQkZn4taUiHIgU3u"
       },
       {
-        "name": "Haunting the Machine",
-        "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
-        "image": "/data/images/0bd3b4662f27.jpg",
-        "url": "https://open.spotify.com/track/6iy6tVKGGTam8GVZUfuR02"
+        "name": "Sugar Rush",
+        "artist": "AmoebaPi, Hatsune Miku",
+        "image": "/data/images/fb1129db4cec.jpg",
+        "url": "https://open.spotify.com/track/5aOMOMatDKmcyhMygcyM2k"
       },
       {
-        "name": "LEMON MELON COOKIE",
-        "artist": "TAK, Hatsune Miku",
-        "image": "/data/images/edbcf1e00932.jpg",
-        "url": "https://open.spotify.com/track/65gE7v1HqOfudsfdh2SuD8"
+        "name": "Hologram Touch",
+        "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
+        "image": "/data/images/0bd3b4662f27.jpg",
+        "url": "https://open.spotify.com/track/4ek3POEn3tpIoSILjUvevZ"
       }
     ]
   },
@@ -448,8 +448,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.3,
-        "memory": 9454
+        "cpu": 0.5,
+        "memory": 9459
       }
     },
     {
@@ -459,8 +459,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 1.6,
-        "memory": 4284
+        "cpu": 1.2,
+        "memory": 4285
       }
     },
     {
@@ -470,7 +470,7 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3.2,
+        "cpu": 6.9,
         "memory": 5424
       }
     }
