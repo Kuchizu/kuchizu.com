@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-26T23:26:17.293Z",
+  "updated_at": "2025-12-26T23:44:11.859Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -413,11 +413,11 @@
   },
   "spotify": {
     "currentlyPlaying": {
-      "name": "ただ君に晴れ",
-      "artist": "ヨルシカ",
-      "album": "負け犬にアンコールはいらない",
-      "image": "/data/images/f2cc1d07568f.jpg",
-      "url": "https://open.spotify.com/track/3wJHCry960drNlAUGrJLmz"
+      "name": "IRIS OUT",
+      "artist": "Kenshi Yonezu",
+      "album": "IRIS OUT",
+      "image": "/data/images/232f15e8c5b0.jpg",
+      "url": "https://open.spotify.com/track/59hVbgr8rfYkDbHfr8RcGI"
     },
     "recentTracks": [
       {
@@ -444,12 +444,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 91,
+      "memory": 90,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.4,
-        "memory": 9474
+        "cpu": 0,
+        "memory": 9429
       }
     },
     {
@@ -459,8 +459,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 781,
-        "memory": 3946
+        "cpu": 1.8,
+        "memory": 3972
       }
     },
     {
@@ -470,8 +470,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 5.5,
-        "memory": 4569
+        "cpu": 3,
+        "memory": 4574
       }
     }
   ]
