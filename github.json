@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-26T23:44:11.859Z",
+  "updated_at": "2025-12-26T23:57:07.160Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -412,13 +412,7 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": {
-      "name": "IRIS OUT",
-      "artist": "Kenshi Yonezu",
-      "album": "IRIS OUT",
-      "image": "/data/images/232f15e8c5b0.jpg",
-      "url": "https://open.spotify.com/track/59hVbgr8rfYkDbHfr8RcGI"
-    },
+    "currentlyPlaying": null,
     "recentTracks": [
       {
         "name": "Productivity Hell",
@@ -448,8 +442,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0,
-        "memory": 9429
+        "cpu": 0.8,
+        "memory": 9431
       }
     },
     {
@@ -459,8 +453,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 1.8,
-        "memory": 3972
+        "cpu": 0.8,
+        "memory": 3978
       }
     },
     {
@@ -470,8 +464,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3,
-        "memory": 4574
+        "cpu": 2.8,
+        "memory": 4648
       }
     }
   ]
