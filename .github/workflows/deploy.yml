@@ -35,16 +35,18 @@ jobs:
             git rev-parse --short HEAD > .commit
 
             # Build images
-            docker build --no-cache -t kuchizu/portfolio:latest .
-            docker build --no-cache -f Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest .
-            docker build --no-cache -t kuchizu/spotify-service:latest services/spotify/
-            docker build --no-cache -t kuchizu/steam-service:latest services/steam/
+            docker build -t kuchizu/portfolio:latest . &
+            docker build -f Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest . &
+            docker build -t kuchizu/spotify-service:latest services/spotify/ &
+            docker build -t kuchizu/steam-service:latest services/steam/ &
+            wait
 
             # Import to k3s
-            docker save kuchizu/portfolio:latest | sudo k3s ctr images import -
-            docker save kuchizu/portfolio-fetcher:latest | sudo k3s ctr images import -
-            docker save kuchizu/spotify-service:latest | sudo k3s ctr images import -
-            docker save kuchizu/steam-service:latest | sudo k3s ctr images import -
+            docker save kuchizu/portfolio:latest | sudo k3s ctr images import - &
+            docker save kuchizu/portfolio-fetcher:latest | sudo k3s ctr images import - &
+            docker save kuchizu/spotify-service:latest | sudo k3s ctr images import - &
+            docker save kuchizu/steam-service:latest | sudo k3s ctr images import - &
+            wait
 
             # Apply k8s resources
             sudo kubectl apply -f k8s/pvc.yaml
@@ -56,24 +58,11 @@ jobs:
               --from-literal=SPOTIFY_CLIENT_SECRET="$SPOTIFY_CLIENT_SECRET" \
               --from-literal=SPOTIFY_REFRESH_TOKEN="$SPOTIFY_REFRESH_TOKEN" \
               --from-literal=SERVERS="${SERVERS:-[]}"
-            sudo kubectl apply -f k8s/cronjob.yaml
-            sudo kubectl apply -f k8s/deployment.yaml
-            sudo kubectl apply -f k8s/spotify-service.yaml
-            sudo kubectl apply -f k8s/steam-service.yaml
-            sudo kubectl apply -f k8s/ingress.yaml
+            sudo kubectl apply -f k8s/
 
-            # Trigger initial data fetch
-            sudo kubectl create job --from=cronjob/portfolio-data-fetcher portfolio-data-init -n kuchizu-portfolio 2>/dev/null || true
-            sudo kubectl wait --for=condition=complete job/portfolio-data-init -n kuchizu-portfolio --timeout=60s 2>/dev/null || true
-            sudo kubectl delete job portfolio-data-init -n kuchizu-portfolio 2>/dev/null || true
-
-            # Restart deployments
-            sudo kubectl rollout restart deployment/kuchizu-portfolio -n kuchizu-portfolio
-            sudo kubectl rollout restart deployment/spotify-service -n kuchizu-portfolio
-            sudo kubectl rollout restart deployment/steam-service -n kuchizu-portfolio
-            sudo kubectl rollout status deployment/kuchizu-portfolio -n kuchizu-portfolio --timeout=120s
-            sudo kubectl rollout status deployment/spotify-service -n kuchizu-portfolio --timeout=60s
-            sudo kubectl rollout status deployment/steam-service -n kuchizu-portfolio --timeout=60s
+            # Restart all deployments
+            sudo kubectl rollout restart deployment -n kuchizu-portfolio
+            sudo kubectl rollout status deployment -n kuchizu-portfolio --timeout=120s
 
       - name: Purge Cloudflare Cache
         run: |

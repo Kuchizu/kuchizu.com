@@ -17,7 +17,8 @@ function renderSpotify(spotify) {
 }
 
 let progressInterval = null;
-let currentProgress = 0;
+let progressStart = 0;
+let progressTimestamp = 0;
 let currentDuration = 0;
 let isPlaying = false;
 
@@ -28,11 +29,14 @@ function renderNowPlaying(cp) {
     if (cp && cp.track) {
         const isNew = lastTrackUrl !== cp.url;
         lastTrackUrl = cp.url;
-        currentProgress = cp.progress || 0;
+
+        // Sync progress with server response time
+        progressStart = cp.progress || 0;
+        progressTimestamp = Date.now();
         currentDuration = cp.duration || 1;
         isPlaying = cp.playing;
 
-        const progressPercent = (currentProgress / currentDuration) * 100;
+        const progressPercent = (progressStart / currentDuration) * 100;
 
         el.innerHTML = `
             <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current${isNew ? ' fade-in' : ''}${cp.playing ? '' : ' paused'}">
@@ -45,7 +49,7 @@ function renderNowPlaying(cp) {
                         <div class="spotify-progress-bar" style="width: ${progressPercent}%"></div>
                     </div>
                     <div class="spotify-time">
-                        <span>${formatTime(currentProgress)}</span>
+                        <span>${formatTime(progressStart)}</span>
                         <span>${formatTime(currentDuration)}</span>
                     </div>
                 </div>
@@ -67,19 +71,26 @@ function formatTime(ms) {
     return `${m}:${String(s % 60).padStart(2, '0')}`;
 }
 
+function getCurrentProgress() {
+    if (!isPlaying) return progressStart;
+    const elapsed = Date.now() - progressTimestamp;
+    return Math.min(progressStart + elapsed, currentDuration);
+}
+
 function startProgressAnimation() {
     stopProgressAnimation();
     if (!isPlaying) return;
 
-    progressInterval = setInterval(() => {
-        currentProgress += 1000;
-        if (currentProgress > currentDuration) currentProgress = currentDuration;
-
+    function update() {
+        const current = getCurrentProgress();
         const bar = document.querySelector('.spotify-progress-bar');
         const timeEl = document.querySelector('.spotify-time span:first-child');
-        if (bar) bar.style.width = `${(currentProgress / currentDuration) * 100}%`;
-        if (timeEl) timeEl.textContent = formatTime(currentProgress);
-    }, 1000);
+        if (bar) bar.style.width = `${(current / currentDuration) * 100}%`;
+        if (timeEl) timeEl.textContent = formatTime(current);
+    }
+
+    update();
+    progressInterval = setInterval(update, 1000);
 }
 
 function stopProgressAnimation() {
