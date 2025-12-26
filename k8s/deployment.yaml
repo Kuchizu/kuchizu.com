@@ -72,12 +72,18 @@ spec:
           mountPath: /var/cache/nginx
         - name: run
           mountPath: /var/run
+        - name: data
+          mountPath: /usr/share/nginx/html/data
+          readOnly: true
 
       volumes:
       - name: cache
         emptyDir: {}
       - name: run
         emptyDir: {}
+      - name: data
+        persistentVolumeClaim:
+          claimName: portfolio-data
 
       affinity:
         podAntiAffinity:

@@ -1,6 +1,6 @@
 const CONFIG = {
     username: 'Kuchizu',
-    dataUrl: 'https://raw.githubusercontent.com/Kuchizu/kuchizu.com/data/github.json',
+    dataUrl: '/api/data',
     timezone: 'Europe/Moscow'
 };
 

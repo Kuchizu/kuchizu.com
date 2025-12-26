@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: portfolio-data-fetcher
+  namespace: kuchizu-portfolio
+spec:
+  schedule: "*/3 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: fetcher
+              image: kuchizu/portfolio-fetcher:latest
+              imagePullPolicy: Never
+              envFrom:
+                - secretRef:
+                    name: portfolio-secrets
+              volumeMounts:
+                - name: data
+                  mountPath: /app/data
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: portfolio-data

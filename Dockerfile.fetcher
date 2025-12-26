@@ -1,0 +1,7 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY scripts/ ./scripts/
+
+CMD ["node", "scripts/fetch-data.js"]

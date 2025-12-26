@@ -13,10 +13,18 @@ jobs:
     steps:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.DATA_GITHUB_TOKEN }}
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+          SERVERS: ${{ secrets.SERVERS }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
+          envs: GITHUB_TOKEN,STEAM_API_KEY,SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,SERVERS
           script: |
             if [ ! -d "/root/kuchizu.com" ]; then
               git clone https://github.com/Kuchizu/kuchizu.com.git /root/kuchizu.com
@@ -25,9 +33,34 @@ jobs:
             git fetch origin master
             git reset --hard origin/master
             git rev-parse --short HEAD > .commit
+
+            # Build images
             docker build --no-cache -t kuchizu/portfolio:latest .
+            docker build --no-cache -f Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest .
+
+            # Import to k3s
             docker save kuchizu/portfolio:latest | sudo k3s ctr images import -
-            sudo kubectl delete pods -n kuchizu-portfolio --all
+            docker save kuchizu/portfolio-fetcher:latest | sudo k3s ctr images import -
+
+            # Apply k8s resources
+            sudo kubectl apply -f k8s/pvc.yaml
+            sudo kubectl delete secret portfolio-secrets -n kuchizu-portfolio 2>/dev/null || true
+            sudo kubectl create secret generic portfolio-secrets -n kuchizu-portfolio \
+              --from-literal=GITHUB_TOKEN="$GITHUB_TOKEN" \
+              --from-literal=STEAM_API_KEY="$STEAM_API_KEY" \
+              --from-literal=SPOTIFY_CLIENT_ID="$SPOTIFY_CLIENT_ID" \
+              --from-literal=SPOTIFY_CLIENT_SECRET="$SPOTIFY_CLIENT_SECRET" \
+              --from-literal=SPOTIFY_REFRESH_TOKEN="$SPOTIFY_REFRESH_TOKEN" \
+              --from-literal=SERVERS="${SERVERS:-[]}"
+            sudo kubectl apply -f k8s/cronjob.yaml
+
+            # Trigger initial data fetch
+            sudo kubectl create job --from=cronjob/portfolio-data-fetcher portfolio-data-init -n kuchizu-portfolio 2>/dev/null || true
+            sudo kubectl wait --for=condition=complete job/portfolio-data-init -n kuchizu-portfolio --timeout=60s 2>/dev/null || true
+            sudo kubectl delete job portfolio-data-init -n kuchizu-portfolio 2>/dev/null || true
+
+            # Restart deployment
+            sudo kubectl delete pods -n kuchizu-portfolio -l app=kuchizu-portfolio
             sudo kubectl rollout status deployment/kuchizu-portfolio -n kuchizu-portfolio --timeout=120s
 
       - name: Purge Cloudflare Cache
