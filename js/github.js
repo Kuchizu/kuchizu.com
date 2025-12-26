@@ -9,8 +9,9 @@ async function loadGitHubData() {
         renderSpotify(data.spotify);
         renderShikimori(data.shikimori);
         renderServers(data.servers);
-    } catch {
-        loadFromAPI();
+    } catch (err) {
+        console.error('Data error:', err);
+        showError();
     }
 }
 
@@ -18,51 +19,6 @@ function renderUpdated(date) {
     const el = document.getElementById('updated');
     if (!el || !date) return;
     el.textContent = timeAgo(date);
-}
-
-async function loadFromAPI() {
-    try {
-        const [userRes, reposRes, eventsRes, contribRes] = await Promise.all([
-            fetch(`https://api.github.com/users/${CONFIG.username}`),
-            fetch(`https://api.github.com/users/${CONFIG.username}/repos?per_page=100&sort=pushed`),
-            fetch(`https://api.github.com/users/${CONFIG.username}/events/public?per_page=10`),
-            fetch(`https://github-contributions-api.jogruber.de/v4/${CONFIG.username}?y=last`)
-        ]);
-
-        const user = await userRes.json();
-        const repos = await reposRes.json();
-        const events = await eventsRes.json();
-        const contribData = await contribRes.json();
-
-        if (user.message || repos.message) throw new Error(user.message || repos.message);
-
-        const totalStars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
-        const langBytes = {};
-        for (const r of repos) {
-            if (r.fork || !r.language) continue;
-            langBytes[r.language] = (langBytes[r.language] || 0) + (r.size || 1);
-        }
-        const totalBytes = Object.values(langBytes).reduce((a, b) => a + b, 0);
-
-        renderAll({
-            stats: { repos: user.public_repos, stars: totalStars, followers: user.followers, following: user.following },
-            languages: Object.entries(langBytes)
-                .map(([name, bytes]) => ({ name, percent: parseFloat((bytes / totalBytes * 100).toFixed(1)) }))
-                .sort((a, b) => b.percent - a.percent).slice(0, 4),
-            pinned: repos.filter(r => !r.fork).sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 2)
-                .map(r => ({ name: r.name, description: r.description, url: r.html_url, language: r.language, stars: r.stargazers_count })),
-            activity: events.filter(e => ['PushEvent', 'CreateEvent', 'IssuesEvent', 'PullRequestEvent', 'WatchEvent'].includes(e.type)).slice(0, 3)
-                .map(e => ({ type: e.type, repo: e.repo.name, payload: { action: e.payload.action, ref_type: e.payload.ref_type, commits: e.payload.size || e.payload.commits?.length || 0 }, created_at: e.created_at })),
-            contributions: (contribData.contributions || []).slice(-49)
-        });
-        renderSteam(null);
-        renderSpotify(null);
-        renderShikimori(null);
-        renderServers(null);
-    } catch (err) {
-        console.error('API error:', err);
-        showError();
-    }
 }
 
 function showError() {

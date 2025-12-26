@@ -3,7 +3,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
-const BASE_URL = 'https://raw.githubusercontent.com/Kuchizu/kuchizu.com/data/images';
+const BASE_URL = '/data/images';
 
 function getImageFilename(url) {
     const hash = crypto.createHash('md5').update(url).digest('hex').slice(0, 12);

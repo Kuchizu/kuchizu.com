@@ -1,4 +1,5 @@
 let lastTrackUrl = null;
+let lastImageUrl = null;
 
 function renderSpotify(spotify) {
     const section = document.getElementById('spotify');
@@ -27,8 +28,10 @@ function renderNowPlaying(cp) {
     if (!el) return;
 
     if (cp && cp.track) {
-        const isNew = lastTrackUrl !== cp.url;
+        const isNewTrack = lastTrackUrl !== cp.url;
+        const isNewImage = lastImageUrl !== cp.image;
         lastTrackUrl = cp.url;
+        lastImageUrl = cp.image;
 
         // Sync progress with server response time
         progressStart = cp.progress || 0;
@@ -36,31 +39,48 @@ function renderNowPlaying(cp) {
         currentDuration = cp.duration || 1;
         isPlaying = cp.playing;
 
-        const progressPercent = (progressStart / currentDuration) * 100;
+        // Only rebuild if new track, otherwise update in place
+        if (isNewTrack || !el.querySelector('.spotify-current')) {
+            const progressPercent = (progressStart / currentDuration) * 100;
+            el.innerHTML = `
+                <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current${isNewTrack ? ' fade-in' : ''}${cp.playing ? '' : ' paused'}">
+                    <img class="spotify-current-img" src="${cp.image}" alt="${cp.album || cp.track}" loading="lazy">
+                    <div class="spotify-current-info">
+                        <div class="spotify-current-label">${cp.playing ? 'Now Playing' : 'Paused'}</div>
+                        <div class="spotify-current-name">${cp.name || cp.track}</div>
+                        <div class="spotify-current-artist">${cp.artist}</div>
+                        <div class="spotify-progress">
+                            <div class="spotify-progress-bar" style="width: ${progressPercent}%"></div>
+                        </div>
+                        <div class="spotify-time">
+                            <span>${formatTime(progressStart)}</span>
+                            <span>${formatTime(currentDuration)}</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        } else {
+            // Update only changed elements
+            const current = el.querySelector('.spotify-current');
+            const label = el.querySelector('.spotify-current-label');
+            const img = el.querySelector('.spotify-current-img');
 
-        el.innerHTML = `
-            <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current${isNew ? ' fade-in' : ''}${cp.playing ? '' : ' paused'}">
-                <img class="spotify-current-img" src="${cp.image}" alt="${cp.album || cp.track}" loading="lazy">
-                <div class="spotify-current-info">
-                    <div class="spotify-current-label">${cp.playing ? 'Now Playing' : 'Paused'}</div>
-                    <div class="spotify-current-name">${cp.name || cp.track}</div>
-                    <div class="spotify-current-artist">${cp.artist}</div>
-                    <div class="spotify-progress">
-                        <div class="spotify-progress-bar" style="width: ${progressPercent}%"></div>
-                    </div>
-                    <div class="spotify-time">
-                        <span>${formatTime(progressStart)}</span>
-                        <span>${formatTime(currentDuration)}</span>
-                    </div>
-                </div>
-            </a>
-        `;
+            if (label) label.textContent = cp.playing ? 'Now Playing' : 'Paused';
+            current.classList.toggle('paused', !cp.playing);
+
+            // Only update image if URL changed
+            if (isNewImage && img) {
+                img.src = cp.image;
+                img.alt = cp.album || cp.track;
+            }
+        }
         el.classList.add('active');
 
         startProgressAnimation();
     } else {
         el.classList.remove('active');
         lastTrackUrl = null;
+        lastImageUrl = null;
         stopProgressAnimation();
     }
 }
