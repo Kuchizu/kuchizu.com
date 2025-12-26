@@ -1,0 +1,478 @@
+{
+  "updated_at": "2025-12-26T22:29:05.096Z",
+  "github": {
+    "stats": {
+      "repos": 15,
+      "stars": 19,
+      "followers": 26,
+      "following": 40
+    },
+    "languages": [
+      {
+        "name": "C",
+        "percent": 69.8
+      },
+      {
+        "name": "Python",
+        "percent": 30.1
+      },
+      {
+        "name": "JavaScript",
+        "percent": 0.1
+      },
+      {
+        "name": "Java",
+        "percent": 0.1
+      }
+    ],
+    "pinned": [
+      {
+        "name": "ItmoLabs",
+        "description": "My works at ITMO University",
+        "url": "https://github.com/Kuchizu/ItmoLabs",
+        "language": "C",
+        "stars": 13,
+        "forks": 1
+      },
+      {
+        "name": "VideoToASCII",
+        "description": "Renders video in terminal from ASCII characters",
+        "url": "https://github.com/Kuchizu/VideoToASCII",
+        "language": "Python",
+        "stars": 2,
+        "forks": 0
+      },
+      {
+        "name": "Userbot_modules",
+        "description": null,
+        "url": "https://github.com/Kuchizu/Userbot_modules",
+        "language": "Python",
+        "stars": 2,
+        "forks": 0
+      },
+      {
+        "name": "Kuchizu",
+        "description": "Config files for my GitHub profile.",
+        "url": "https://github.com/Kuchizu/Kuchizu",
+        "language": null,
+        "stars": 1,
+        "forks": 0
+      }
+    ],
+    "activity": [
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-26T22:24:35Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-26T22:15:28Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-26T22:06:25Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-26T21:57:38Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-26T21:36:13Z"
+      }
+    ],
+    "contributions": [
+      {
+        "date": "2025-11-08",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-09",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-10",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-11",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-12",
+        "count": 2,
+        "level": 1
+      },
+      {
+        "date": "2025-11-13",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-14",
+        "count": 6,
+        "level": 1
+      },
+      {
+        "date": "2025-11-15",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-16",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-17",
+        "count": 4,
+        "level": 1
+      },
+      {
+        "date": "2025-11-18",
+        "count": 8,
+        "level": 2
+      },
+      {
+        "date": "2025-11-19",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-20",
+        "count": 83,
+        "level": 4
+      },
+      {
+        "date": "2025-11-21",
+        "count": 8,
+        "level": 2
+      },
+      {
+        "date": "2025-11-22",
+        "count": 1,
+        "level": 1
+      },
+      {
+        "date": "2025-11-23",
+        "count": 5,
+        "level": 1
+      },
+      {
+        "date": "2025-11-24",
+        "count": 10,
+        "level": 2
+      },
+      {
+        "date": "2025-11-25",
+        "count": 6,
+        "level": 1
+      },
+      {
+        "date": "2025-11-26",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-27",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-28",
+        "count": 21,
+        "level": 3
+      },
+      {
+        "date": "2025-11-29",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-11-30",
+        "count": 3,
+        "level": 1
+      },
+      {
+        "date": "2025-12-01",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-02",
+        "count": 12,
+        "level": 2
+      },
+      {
+        "date": "2025-12-03",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-04",
+        "count": 1,
+        "level": 1
+      },
+      {
+        "date": "2025-12-05",
+        "count": 38,
+        "level": 4
+      },
+      {
+        "date": "2025-12-06",
+        "count": 4,
+        "level": 1
+      },
+      {
+        "date": "2025-12-07",
+        "count": 4,
+        "level": 1
+      },
+      {
+        "date": "2025-12-08",
+        "count": 24,
+        "level": 4
+      },
+      {
+        "date": "2025-12-09",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-10",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-11",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-12",
+        "count": 3,
+        "level": 1
+      },
+      {
+        "date": "2025-12-13",
+        "count": 13,
+        "level": 2
+      },
+      {
+        "date": "2025-12-14",
+        "count": 5,
+        "level": 1
+      },
+      {
+        "date": "2025-12-15",
+        "count": 4,
+        "level": 1
+      },
+      {
+        "date": "2025-12-16",
+        "count": 1,
+        "level": 1
+      },
+      {
+        "date": "2025-12-17",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-18",
+        "count": 1,
+        "level": 1
+      },
+      {
+        "date": "2025-12-19",
+        "count": 13,
+        "level": 2
+      },
+      {
+        "date": "2025-12-20",
+        "count": 7,
+        "level": 1
+      },
+      {
+        "date": "2025-12-21",
+        "count": 2,
+        "level": 1
+      },
+      {
+        "date": "2025-12-22",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2025-12-23",
+        "count": 4,
+        "level": 1
+      },
+      {
+        "date": "2025-12-24",
+        "count": 28,
+        "level": 4
+      },
+      {
+        "date": "2025-12-25",
+        "count": 4,
+        "level": 1
+      },
+      {
+        "date": "2025-12-26",
+        "count": 9,
+        "level": 2
+      }
+    ]
+  },
+  "steam": {
+    "personaname": "Good juju",
+    "avatar": "/data/images/8be616b3b50f.jpg",
+    "profileurl": "https://steamcommunity.com/id/Kuchizu/",
+    "status": "Online",
+    "isOnline": true,
+    "inGame": null,
+    "gameId": null,
+    "recentGames": [
+      {
+        "appid": 1030300,
+        "name": "Hollow Knight: Silksong",
+        "playtime_2weeks": 20,
+        "playtime_forever": 53,
+        "icon": "/data/images/26828634f66a.jpg"
+      },
+      {
+        "appid": 570,
+        "name": "Dota 2",
+        "playtime_2weeks": 5,
+        "playtime_forever": 2111,
+        "icon": "/data/images/37582f945d67.jpg"
+      },
+      {
+        "appid": 730,
+        "name": "Counter-Strike 2",
+        "playtime_2weeks": 1,
+        "playtime_forever": 131,
+        "icon": "/data/images/32e247ee5787.jpg"
+      },
+      {
+        "appid": 1905180,
+        "name": "OBS Studio",
+        "playtime_2weeks": 0,
+        "playtime_forever": 44,
+        "icon": "/data/images/d82824acd068.jpg"
+      }
+    ],
+    "totalGames": 50
+  },
+  "shikimori": {
+    "nickname": "Kuchizu",
+    "avatar": "/data/images/91db5fdca344.png",
+    "url": "https://shikimori.one/Kuchizu",
+    "watching": 2,
+    "completed": 208,
+    "total": 343,
+    "current": [
+      {
+        "name": "Мой братик теперь не братик!",
+        "image": "/data/images/403b1ba57a79.jpg",
+        "episodes": "0/12",
+        "url": "https://shikimori.one/animes/51678-oniichan-wa-oshimai"
+      },
+      {
+        "name": "Гениальный целитель, который исцелял в одно мгновение, но был изгнан как бесполезный, теперь наслаждается жизнью в качестве тёмного целителя",
+        "image": "/data/images/0edd3b378949.jpg",
+        "episodes": "0/12",
+        "url": "https://shikimori.one/animes/58359-isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou-sareta-tensai-chiyushi-yami-healer-toshite-tanoshiku-ikiru"
+      }
+    ]
+  },
+  "spotify": {
+    "currentlyPlaying": {
+      "name": "Hologram Touch",
+      "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
+      "album": "THE END OF EVERYTING, Vol. 2",
+      "image": "/data/images/575bb17b69a3.jpg",
+      "url": "https://open.spotify.com/track/4ek3POEn3tpIoSILjUvevZ"
+    },
+    "recentTracks": [
+      {
+        "name": "Tears",
+        "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
+        "image": "/data/images/0bd3b4662f27.jpg",
+        "url": "https://open.spotify.com/track/2rsfOZVZZtR9Ui0lAmI3eS"
+      },
+      {
+        "name": "Haunting the Machine",
+        "artist": "おやすみ世界01, Hatsune Miku, Miku Hatsune",
+        "image": "/data/images/0bd3b4662f27.jpg",
+        "url": "https://open.spotify.com/track/6iy6tVKGGTam8GVZUfuR02"
+      },
+      {
+        "name": "LEMON MELON COOKIE",
+        "artist": "TAK, Hatsune Miku",
+        "image": "/data/images/edbcf1e00932.jpg",
+        "url": "https://open.spotify.com/track/65gE7v1HqOfudsfdh2SuD8"
+      }
+    ]
+  },
+  "servers": [
+    {
+      "name": "prod_1",
+      "uptime": 29,
+      "memory": 90,
+      "processes": {
+        "online": 20,
+        "total": 20,
+        "cpu": 0.3,
+        "memory": 9454
+      }
+    },
+    {
+      "name": "prod_2",
+      "uptime": 347,
+      "memory": 71,
+      "processes": {
+        "online": 23,
+        "total": 23,
+        "cpu": 1.6,
+        "memory": 4284
+      }
+    },
+    {
+      "name": "master",
+      "uptime": 128,
+      "memory": 48,
+      "processes": {
+        "online": 24,
+        "total": 24,
+        "cpu": 3.2,
+        "memory": 5424
+      }
+    }
+  ]
+}
