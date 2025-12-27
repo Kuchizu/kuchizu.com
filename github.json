@@ -1,8 +1,8 @@
 {
-  "updated_at": "2025-12-27T14:58:19.058Z",
+  "updated_at": "2025-12-27T15:28:06.642Z",
   "github": {
     "stats": {
-      "repos": 15,
+      "repos": 16,
       "stars": 19,
       "followers": 26,
       "following": 40
@@ -66,6 +66,31 @@
         "payload": {
           "commits": 0
         },
+        "created_at": "2025-12-27T15:20:56Z"
+      },
+      {
+        "type": "PullRequestEvent",
+        "repo": "emmabostian/developer-portfolios",
+        "payload": {
+          "action": "opened",
+          "commits": 0
+        },
+        "created_at": "2025-12-27T15:05:57Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/developer-portfolios",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-27T15:05:37Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
         "created_at": "2025-12-27T03:10:32Z"
       },
       {
@@ -75,30 +100,6 @@
           "commits": 0
         },
         "created_at": "2025-12-27T03:05:44Z"
-      },
-      {
-        "type": "PushEvent",
-        "repo": "Kuchizu/kuchizu.com",
-        "payload": {
-          "commits": 0
-        },
-        "created_at": "2025-12-27T03:03:09Z"
-      },
-      {
-        "type": "PushEvent",
-        "repo": "Kuchizu/kuchizu.com",
-        "payload": {
-          "commits": 0
-        },
-        "created_at": "2025-12-27T02:55:42Z"
-      },
-      {
-        "type": "PushEvent",
-        "repo": "Kuchizu/kuchizu.com",
-        "payload": {
-          "commits": 0
-        },
-        "created_at": "2025-12-27T02:40:18Z"
       }
     ],
     "contributions": [
@@ -1079,7 +1080,7 @@
       },
       {
         "date": "2025-12-27",
-        "count": 19,
+        "count": 21,
         "level": 3
       }
     ]
@@ -1088,7 +1089,7 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Away",
+    "status": "Online",
     "isOnline": true,
     "inGame": null,
     "gameId": null,
@@ -1147,7 +1148,13 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": null,
+    "currentlyPlaying": {
+      "name": "Bad example",
+      "artist": "たかやん",
+      "album": "2019 - 2021",
+      "image": "/data/images/5887333f6190.jpg",
+      "url": "https://open.spotify.com/track/1ji3cJU0sobtsiNEZRvNVz"
+    },
     "recentTracks": [
       {
         "name": "Problems - Kasane Teto ver.",
@@ -1173,12 +1180,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 92,
+      "memory": 93,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.7,
-        "memory": 9711
+        "cpu": 0.2,
+        "memory": 9777
       }
     },
     {
@@ -1188,7 +1195,7 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 777.9,
+        "cpu": 762,
         "memory": 4054
       }
     },
@@ -1199,8 +1206,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 2.8,
-        "memory": 5031
+        "cpu": 3.2,
+        "memory": 5028
       }
     }
   ]
