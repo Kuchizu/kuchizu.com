@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T20:53:47.576Z",
+  "updated_at": "2025-12-27T21:24:36.266Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1091,8 +1091,8 @@
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
     "status": "Online",
     "isOnline": true,
-    "inGame": null,
-    "gameId": null,
+    "inGame": "Hollow Knight: Silksong",
+    "gameId": "1030300",
     "recentGames": [
       {
         "appid": 1030300,
@@ -1148,31 +1148,25 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": {
-      "name": "Wrong World",
-      "artist": "TOGENASHI TOGEARI",
-      "album": "TOGENASHI",
-      "image": "/data/images/acc20f06e7a1.jpg",
-      "url": "https://open.spotify.com/track/4Mghgr37JNnlFWXbezg3oZ"
-    },
+    "currentlyPlaying": null,
     "recentTracks": [
+      {
+        "name": "Miku",
+        "artist": "Anamanaguchi, Hatsune Miku",
+        "image": "/data/images/bbe42bd9bc2b.jpg",
+        "url": "https://open.spotify.com/track/7aux5UvnlBDYlrlwoczifW"
+      },
+      {
+        "name": "Retry Now",
+        "artist": "NAKISO",
+        "image": "/data/images/74088092b09a.jpg",
+        "url": "https://open.spotify.com/track/0EiXg3HzFQmt3c2pLDuaQN"
+      },
       {
         "name": "Problems - Kasane Teto ver.",
         "artist": "Alterclad",
         "image": "/data/images/4496ea9bf796.jpg",
         "url": "https://open.spotify.com/track/2zbf1tQ7w5FTd4rQqKGNQT"
-      },
-      {
-        "name": "カワキヲアメク",
-        "artist": "美波",
-        "image": "/data/images/e9f2934e1f4f.jpg",
-        "url": "https://open.spotify.com/track/3kUWZiVYJ4YQOl0u7Y1Og8"
-      },
-      {
-        "name": "Productivity Hell",
-        "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
-        "image": "/data/images/5ba6ef4b2c87.jpg",
-        "url": "https://open.spotify.com/track/5eIQEAenaBTlWbGjVaRyqo"
       }
     ]
   },
@@ -1180,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 91,
+      "memory": 90,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.5,
-        "memory": 9464
+        "cpu": 8.6,
+        "memory": 9445
       }
     },
     {
@@ -1195,19 +1189,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 550.1,
-        "memory": 4057
+        "cpu": 776.8,
+        "memory": 4060
       }
     },
     {
       "name": "master",
       "uptime": 129,
-      "memory": 47,
+      "memory": 43,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 4,
-        "memory": 5269
+        "cpu": 6.2,
+        "memory": 4571
       }
     }
   ]
