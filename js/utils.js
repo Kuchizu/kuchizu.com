@@ -1,6 +1,12 @@
 function timeAgo(date) {
     const s = Math.floor((new Date() - new Date(date)) / 1000);
-    const i = { y: 31536000, mo: 2592000, d: 86400, h: 3600, m: 60 };
+    if (s < 60) return 'just now';
+    if (s < 3600) {
+        const m = Math.floor(s / 60);
+        const sec = s % 60;
+        return sec > 0 ? `${m}m ${sec}s ago` : `${m}m ago`;
+    }
+    const i = { y: 31536000, mo: 2592000, d: 86400, h: 3600 };
     for (const [u, v] of Object.entries(i)) {
         const n = Math.floor(s / v);
         if (n >= 1) return `${n}${u} ago`;
