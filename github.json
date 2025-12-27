@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T15:58:01.146Z",
+  "updated_at": "2025-12-27T16:35:09.903Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1080,8 +1080,8 @@
       },
       {
         "date": "2025-12-27",
-        "count": 21,
-        "level": 3
+        "count": 22,
+        "level": 4
       }
     ]
   },
@@ -1089,7 +1089,7 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Away",
+    "status": "Online",
     "isOnline": true,
     "inGame": null,
     "gameId": null,
@@ -1149,37 +1149,18 @@
   },
   "spotify": {
     "currentlyPlaying": null,
-    "recentTracks": [
-      {
-        "name": "Problems - Kasane Teto ver.",
-        "artist": "Alterclad",
-        "image": "/data/images/4496ea9bf796.jpg",
-        "url": "https://open.spotify.com/track/2zbf1tQ7w5FTd4rQqKGNQT"
-      },
-      {
-        "name": "カワキヲアメク",
-        "artist": "美波",
-        "image": "/data/images/e9f2934e1f4f.jpg",
-        "url": "https://open.spotify.com/track/3kUWZiVYJ4YQOl0u7Y1Og8"
-      },
-      {
-        "name": "Productivity Hell",
-        "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
-        "image": "/data/images/5ba6ef4b2c87.jpg",
-        "url": "https://open.spotify.com/track/5eIQEAenaBTlWbGjVaRyqo"
-      }
-    ]
+    "recentTracks": []
   },
   "servers": [
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 91,
+      "memory": 90,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 393.6,
-        "memory": 9622
+        "cpu": 0,
+        "memory": 9415
       }
     },
     {
@@ -1189,8 +1170,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 721.1,
-        "memory": 4055
+        "cpu": 778,
+        "memory": 4059
       }
     },
     {
@@ -1200,8 +1181,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 2.9,
-        "memory": 5051
+        "cpu": 3.6,
+        "memory": 5060
       }
     }
   ]
