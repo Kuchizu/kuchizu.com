@@ -252,9 +252,16 @@ h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-botto
 
 .shikimori-footer { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); font-size: 0.6rem; color: var(--fg-muted); }
 
+.corner-info { position: fixed; font-size: 0.65rem; color: var(--fg-muted); font-family: 'SF Mono', 'Fira Code', monospace; font-variant-numeric: tabular-nums; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 0.8s; z-index: 100; }
+.corner-time { top: 1rem; left: 1rem; }
+.corner-ping { top: 1rem; right: 1rem; }
+.corner-resolution { bottom: 1rem; left: 1rem; }
+.corner-load { bottom: 1rem; right: 1rem; }
+
 @media (max-width: 1000px) {
     .layout { grid-template-columns: 1fr; max-width: 360px; gap: 1.5rem; }
     .sidebar-left { justify-self: center; order: 2; grid-template-columns: repeat(2, 176px); }
     .center { order: 1; }
     .sidebar-right { justify-self: center; order: 3; grid-template-columns: repeat(2, 176px); }
+    .corner-info { display: none; }
 }
