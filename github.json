@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T16:56:10.557Z",
+  "updated_at": "2025-12-27T17:24:51.502Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1089,8 +1089,8 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Online",
-    "isOnline": true,
+    "status": "Offline",
+    "isOnline": false,
     "inGame": null,
     "gameId": null,
     "recentGames": [
@@ -1174,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 92,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 363,
-        "memory": 9695
+        "cpu": 0.8,
+        "memory": 9545
       }
     },
     {
@@ -1189,8 +1189,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 775.7,
-        "memory": 4058
+        "cpu": 775.4,
+        "memory": 4051
       }
     },
     {
@@ -1200,8 +1200,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 5.7,
-        "memory": 5066
+        "cpu": 3.1,
+        "memory": 5082
       }
     }
   ]
