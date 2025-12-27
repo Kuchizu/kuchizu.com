@@ -1,0 +1,140 @@
+# PostgreSQL for Umami
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: umami-postgres-pvc
+  namespace: kuchizu-portfolio
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: umami-postgres
+  namespace: kuchizu-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: umami-postgres
+  template:
+    metadata:
+      labels:
+        app: umami-postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15-alpine
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: umami
+        - name: POSTGRES_USER
+          value: umami
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: umami-secrets
+              key: postgres-password
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgres-data
+        persistentVolumeClaim:
+          claimName: umami-postgres-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: umami-postgres
+  namespace: kuchizu-portfolio
+spec:
+  selector:
+    app: umami-postgres
+  ports:
+  - port: 5432
+    targetPort: 5432
+---
+# Umami Analytics
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: umami
+  namespace: kuchizu-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: umami
+  template:
+    metadata:
+      labels:
+        app: umami
+    spec:
+      containers:
+      - name: umami
+        image: ghcr.io/umami-software/umami:postgresql-latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: umami-secrets
+              key: database-url
+        - name: APP_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: umami-secrets
+              key: app-secret
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: umami
+  namespace: kuchizu-portfolio
+spec:
+  selector:
+    app: umami
+  ports:
+  - port: 80
+    targetPort: 3000
+---
+# Ingress for analytics.kuchizu.com
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: umami
+  namespace: kuchizu-portfolio
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+  - hosts:
+    - analytics.kuchizu.com
+    secretName: umami-tls
+  rules:
+  - host: analytics.kuchizu.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: umami
+            port:
+              number: 80
