@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T20:30:32.462Z",
+  "updated_at": "2025-12-27T20:53:47.576Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1148,7 +1148,13 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": null,
+    "currentlyPlaying": {
+      "name": "Wrong World",
+      "artist": "TOGENASHI TOGEARI",
+      "album": "TOGENASHI",
+      "image": "/data/images/acc20f06e7a1.jpg",
+      "url": "https://open.spotify.com/track/4Mghgr37JNnlFWXbezg3oZ"
+    },
     "recentTracks": [
       {
         "name": "Problems - Kasane Teto ver.",
@@ -1178,8 +1184,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.1,
-        "memory": 9501
+        "cpu": 0.5,
+        "memory": 9464
       }
     },
     {
@@ -1189,19 +1195,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 769.1,
+        "cpu": 550.1,
         "memory": 4057
       }
     },
     {
       "name": "master",
       "uptime": 129,
-      "memory": 48,
+      "memory": 47,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 6.3,
-        "memory": 5252
+        "cpu": 4,
+        "memory": 5269
       }
     }
   ]
