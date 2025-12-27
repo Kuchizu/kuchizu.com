@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T15:28:06.642Z",
+  "updated_at": "2025-12-27T15:44:36.935Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1148,13 +1148,7 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": {
-      "name": "Bad example",
-      "artist": "たかやん",
-      "album": "2019 - 2021",
-      "image": "/data/images/5887333f6190.jpg",
-      "url": "https://open.spotify.com/track/1ji3cJU0sobtsiNEZRvNVz"
-    },
+    "currentlyPlaying": null,
     "recentTracks": [
       {
         "name": "Problems - Kasane Teto ver.",
@@ -1180,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 93,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.2,
-        "memory": 9777
+        "cpu": 0.5,
+        "memory": 9611
       }
     },
     {
@@ -1195,8 +1189,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 762,
-        "memory": 4054
+        "cpu": 770.3,
+        "memory": 4055
       }
     },
     {
@@ -1206,8 +1200,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3.2,
-        "memory": 5028
+        "cpu": 5.4,
+        "memory": 5047
       }
     }
   ]
