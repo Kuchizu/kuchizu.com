@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T14:25:59.036Z",
+  "updated_at": "2025-12-27T14:44:40.919Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1088,8 +1088,8 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Offline",
-    "isOnline": false,
+    "status": "Online",
+    "isOnline": true,
     "inGame": null,
     "gameId": null,
     "recentGames": [
@@ -1150,6 +1150,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "Problems - Kasane Teto ver.",
+        "artist": "Alterclad",
+        "image": "/data/images/4496ea9bf796.jpg",
+        "url": "https://open.spotify.com/track/2zbf1tQ7w5FTd4rQqKGNQT"
+      },
+      {
         "name": "カワキヲアメク",
         "artist": "美波",
         "image": "/data/images/e9f2934e1f4f.jpg",
@@ -1160,12 +1166,6 @@
         "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
         "image": "/data/images/5ba6ef4b2c87.jpg",
         "url": "https://open.spotify.com/track/5eIQEAenaBTlWbGjVaRyqo"
-      },
-      {
-        "name": "Delusion Tax",
-        "artist": "AmoebaPi, Hatsune Miku",
-        "image": "/data/images/fb1129db4cec.jpg",
-        "url": "https://open.spotify.com/track/0cOrodcQkZn4taUiHIgU3u"
       }
     ]
   },
@@ -1173,12 +1173,12 @@
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 90,
+      "memory": 92,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 1.7,
-        "memory": 9475
+        "cpu": 0,
+        "memory": 9710
       }
     },
     {
@@ -1188,7 +1188,7 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 719.1,
+        "cpu": 761.5,
         "memory": 4054
       }
     },
@@ -1200,7 +1200,7 @@
         "online": 24,
         "total": 24,
         "cpu": 7.6,
-        "memory": 5017
+        "memory": 5025
       }
     }
   ]
