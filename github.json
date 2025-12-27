@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-27T16:35:09.903Z",
+  "updated_at": "2025-12-27T16:56:10.557Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1149,18 +1149,37 @@
   },
   "spotify": {
     "currentlyPlaying": null,
-    "recentTracks": []
+    "recentTracks": [
+      {
+        "name": "Problems - Kasane Teto ver.",
+        "artist": "Alterclad",
+        "image": "/data/images/4496ea9bf796.jpg",
+        "url": "https://open.spotify.com/track/2zbf1tQ7w5FTd4rQqKGNQT"
+      },
+      {
+        "name": "カワキヲアメク",
+        "artist": "美波",
+        "image": "/data/images/e9f2934e1f4f.jpg",
+        "url": "https://open.spotify.com/track/3kUWZiVYJ4YQOl0u7Y1Og8"
+      },
+      {
+        "name": "Productivity Hell",
+        "artist": "Blood Apple, Hatsune Miku, 初音ミク, Miku Hatsune",
+        "image": "/data/images/5ba6ef4b2c87.jpg",
+        "url": "https://open.spotify.com/track/5eIQEAenaBTlWbGjVaRyqo"
+      }
+    ]
   },
   "servers": [
     {
       "name": "prod_1",
       "uptime": 29,
-      "memory": 90,
+      "memory": 92,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0,
-        "memory": 9415
+        "cpu": 363,
+        "memory": 9695
       }
     },
     {
@@ -1170,19 +1189,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 778,
-        "memory": 4059
+        "cpu": 775.7,
+        "memory": 4058
       }
     },
     {
       "name": "master",
       "uptime": 129,
-      "memory": 46,
+      "memory": 47,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3.6,
-        "memory": 5060
+        "cpu": 5.7,
+        "memory": 5066
       }
     }
   ]
