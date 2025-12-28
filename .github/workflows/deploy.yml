@@ -34,6 +34,9 @@ jobs:
             git reset --hard origin/master
             git rev-parse --short HEAD > .commit
 
+            # Update sitemap lastmod
+            sed -i "s|<lastmod>.*</lastmod>|<lastmod>$(date +%Y-%m-%d)</lastmod>|" public/sitemap.xml
+
             # Build images
             docker build -f docker/Dockerfile -t kuchizu/portfolio:latest . &
             docker build -f docker/Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest . &
