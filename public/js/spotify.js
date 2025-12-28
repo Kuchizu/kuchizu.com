@@ -142,23 +142,26 @@ function renderRecentTracks(tracks) {
     }
 }
 
-let pollingInterval = null;
+let eventSource = null;
 
 function startSpotifyPolling() {
-    if (pollingInterval) return;
+    if (eventSource) return;
 
-    async function poll() {
+    eventSource = new EventSource('/api/spotify/stream');
+
+    eventSource.onmessage = (e) => {
         try {
-            const res = await fetch('/api/spotify/now-playing');
-            if (res.ok) {
-                const data = await res.json();
-                if (!data.error) {
-                    renderNowPlaying(data);
-                }
+            const data = JSON.parse(e.data);
+            if (!data.error) {
+                renderNowPlaying(data);
             }
         } catch {}
-    }
+    };
 
-    poll();
-    pollingInterval = setInterval(poll, 5000);
+    eventSource.onerror = () => {
+        eventSource.close();
+        eventSource = null;
+        // Fallback to polling on error
+        setTimeout(startSpotifyPolling, 5000);
+    };
 }
