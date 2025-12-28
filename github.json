@@ -1,8 +1,8 @@
 {
-  "updated_at": "2025-12-28T18:40:10.354Z",
+  "updated_at": "2025-12-28T18:58:39.859Z",
   "github": {
     "stats": {
-      "repos": 16,
+      "repos": 15,
       "stars": 19,
       "followers": 26,
       "following": 40
@@ -1148,7 +1148,13 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": null,
+    "currentlyPlaying": {
+      "name": "world.execute (me) ;",
+      "artist": "Mili",
+      "album": "Miracle Milk",
+      "image": "/data/images/301abba600b2.jpg",
+      "url": "https://open.spotify.com/track/2aozlm4HfRx8yRYL7RCoAH"
+    },
     "recentTracks": [
       {
         "name": "PPPP (feat. Hatsune Miku, Kasane Teto)",
@@ -1178,8 +1184,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.2,
-        "memory": 9424
+        "cpu": 0.4,
+        "memory": 9436
       }
     },
     {
@@ -1189,19 +1195,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 777.4,
-        "memory": 4094
+        "cpu": 774.8,
+        "memory": 4096
       }
     },
     {
       "name": "master",
       "uptime": 130,
-      "memory": 48,
+      "memory": 49,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 5.3,
-        "memory": 5226
+        "cpu": 6.9,
+        "memory": 5427
       }
     }
   ]
