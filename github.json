@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-28T17:58:05.627Z",
+  "updated_at": "2025-12-28T18:40:10.354Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1089,8 +1089,8 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Offline",
-    "isOnline": false,
+    "status": "Online",
+    "isOnline": true,
     "inGame": null,
     "gameId": null,
     "recentGames": [
@@ -1149,7 +1149,26 @@
   },
   "spotify": {
     "currentlyPlaying": null,
-    "recentTracks": []
+    "recentTracks": [
+      {
+        "name": "PPPP (feat. Hatsune Miku, Kasane Teto)",
+        "artist": "TAK, Hatsune Miku, Kasane Teto",
+        "image": "/data/images/bf884aebaabc.jpg",
+        "url": "https://open.spotify.com/track/6J3pPfXLujwsWQpvR6XMgC"
+      },
+      {
+        "name": "Mouiiyo",
+        "artist": "Kocchi no Kento",
+        "image": "/data/images/1673b8f89390.jpg",
+        "url": "https://open.spotify.com/track/4TSjU0UG6ZKbQhOJ4Ma7vE"
+      },
+      {
+        "name": "Creep",
+        "artist": "Radiohead",
+        "image": "/data/images/d99f10f7ea15.jpg",
+        "url": "https://open.spotify.com/track/70LcF31zb1H0PyJoS1Sx1r"
+      }
+    ]
   },
   "servers": [
     {
@@ -1159,8 +1178,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.3,
-        "memory": 9431
+        "cpu": 0.2,
+        "memory": 9424
       }
     },
     {
@@ -1170,8 +1189,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 768.8,
-        "memory": 4096
+        "cpu": 777.4,
+        "memory": 4094
       }
     },
     {
@@ -1181,8 +1200,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3.1,
-        "memory": 5224
+        "cpu": 5.3,
+        "memory": 5226
       }
     }
   ]
