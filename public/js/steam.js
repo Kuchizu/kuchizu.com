@@ -70,23 +70,25 @@ function updateSteamStatus(data) {
     }
 }
 
-let steamPollingInterval = null;
+let steamEventSource = null;
 
 function startSteamPolling() {
-    if (steamPollingInterval) return;
+    if (steamEventSource) return;
 
-    async function poll() {
+    steamEventSource = new EventSource('/api/steam/stream');
+
+    steamEventSource.onmessage = (e) => {
         try {
-            const res = await fetch('/api/steam/status');
-            if (res.ok) {
-                const data = await res.json();
-                if (!data.error) {
-                    updateSteamStatus(data);
-                }
+            const data = JSON.parse(e.data);
+            if (!data.error) {
+                updateSteamStatus(data);
             }
         } catch {}
-    }
+    };
 
-    poll();
-    steamPollingInterval = setInterval(poll, 10000); // Every 10 seconds
+    steamEventSource.onerror = () => {
+        steamEventSource.close();
+        steamEventSource = null;
+        setTimeout(startSteamPolling, 5000);
+    };
 }

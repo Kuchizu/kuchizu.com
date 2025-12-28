@@ -3,9 +3,9 @@ const http = require('http');
 const API_KEY = process.env.STEAM_API_KEY;
 const USERNAME = process.env.STEAM_USERNAME || 'Kuchizu';
 
-let cachedData = null;
-let cacheExpiry = 0;
+let currentData = null;
 let steamId = null;
+const sseClients = new Set();
 
 async function resolveSteamId() {
     if (steamId) return steamId;
@@ -23,12 +23,7 @@ async function resolveSteamId() {
     throw new Error('Could not resolve Steam ID');
 }
 
-async function getStatus() {
-    // Return cached data if fresh (10 seconds cache)
-    if (cachedData && Date.now() < cacheExpiry) {
-        return cachedData;
-    }
-
+async function fetchStatus() {
     if (!API_KEY) return { error: 'No API key' };
 
     try {
@@ -38,37 +33,78 @@ async function getStatus() {
         const player = data?.response?.players?.[0];
 
         if (!player) {
-            cachedData = { online: false };
-        } else {
-            const states = ['Offline', 'Online', 'Busy', 'Away', 'Snooze', 'Looking to trade', 'Looking to play'];
-            cachedData = {
-                online: player.personastate > 0,
-                status: states[player.personastate] || 'Offline',
-                inGame: player.gameextrainfo || null,
-                gameId: player.gameid || null,
-                avatar: player.avatarmedium,
-                name: player.personaname
-            };
+            return { online: false };
         }
 
-        cacheExpiry = Date.now() + 10000; // 10 seconds
-        return cachedData;
+        const states = ['Offline', 'Online', 'Busy', 'Away', 'Snooze', 'Looking to trade', 'Looking to play'];
+        return {
+            online: player.personastate > 0,
+            status: states[player.personastate] || 'Offline',
+            inGame: player.gameextrainfo || null,
+            gameId: player.gameid || null,
+            avatar: player.avatarmedium,
+            name: player.personaname
+        };
     } catch (e) {
         return { error: e.message };
     }
 }
 
-const server = http.createServer(async (req, res) => {
+function broadcast(data) {
+    const message = `data: ${JSON.stringify(data)}\n\n`;
+    for (const client of sseClients) {
+        client.write(message);
+    }
+}
+
+// Poll Steam every 10 seconds and broadcast to all SSE clients
+async function pollLoop() {
+    try {
+        const data = await fetchStatus();
+        if (data && !data.error) {
+            currentData = data;
+            broadcast(data);
+        }
+    } catch (e) {
+        console.error('Poll error:', e.message);
+    }
+    setTimeout(pollLoop, 10000);
+}
+
+pollLoop();
+
+const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Content-Type', 'application/json');
 
     if (req.url === '/health') {
+        res.setHeader('Content-Type', 'text/plain');
         return res.end('ok');
     }
 
+    // SSE endpoint
+    if (req.url === '/stream' || req.url === '/api/steam/stream') {
+        res.setHeader('Content-Type', 'text/event-stream');
+        res.setHeader('Cache-Control', 'no-cache');
+        res.setHeader('Connection', 'keep-alive');
+
+        // Send current data immediately
+        if (currentData) {
+            res.write(`data: ${JSON.stringify(currentData)}\n\n`);
+        }
+
+        sseClients.add(res);
+
+        req.on('close', () => {
+            sseClients.delete(res);
+        });
+        return;
+    }
+
+    // Legacy polling endpoint (fallback)
     if (req.url === '/status' || req.url === '/api/steam/status') {
-        const data = await getStatus();
-        return res.end(JSON.stringify(data));
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(currentData || { error: 'unavailable' }));
+        return;
     }
 
     res.statusCode = 404;
@@ -76,4 +112,4 @@ const server = http.createServer(async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => console.log(`Steam service on :${PORT}`));
+server.listen(PORT, () => console.log(`Steam service on :${PORT} (SSE enabled)`));
