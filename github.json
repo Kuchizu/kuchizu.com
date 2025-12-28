@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-28T18:58:39.859Z",
+  "updated_at": "2025-12-28T19:24:39.140Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1089,8 +1089,8 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Online",
-    "isOnline": true,
+    "status": "Offline",
+    "isOnline": false,
     "inGame": null,
     "gameId": null,
     "recentGames": [
@@ -1148,31 +1148,25 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": {
-      "name": "world.execute (me) ;",
-      "artist": "Mili",
-      "album": "Miracle Milk",
-      "image": "/data/images/301abba600b2.jpg",
-      "url": "https://open.spotify.com/track/2aozlm4HfRx8yRYL7RCoAH"
-    },
+    "currentlyPlaying": null,
     "recentTracks": [
+      {
+        "name": "私は雨",
+        "artist": "稲葉曇",
+        "image": "/data/images/ccc17439738c.jpg",
+        "url": "https://open.spotify.com/track/3s5sFHV8VTzg0CSXy3gz5y"
+      },
+      {
+        "name": "Doomer",
+        "artist": "東京真中",
+        "image": "/data/images/4421061a950a.jpg",
+        "url": "https://open.spotify.com/track/3J8h8AUh100VIaFbSjCxB4"
+      },
       {
         "name": "PPPP (feat. Hatsune Miku, Kasane Teto)",
         "artist": "TAK, Hatsune Miku, Kasane Teto",
         "image": "/data/images/bf884aebaabc.jpg",
         "url": "https://open.spotify.com/track/6J3pPfXLujwsWQpvR6XMgC"
-      },
-      {
-        "name": "Mouiiyo",
-        "artist": "Kocchi no Kento",
-        "image": "/data/images/1673b8f89390.jpg",
-        "url": "https://open.spotify.com/track/4TSjU0UG6ZKbQhOJ4Ma7vE"
-      },
-      {
-        "name": "Creep",
-        "artist": "Radiohead",
-        "image": "/data/images/d99f10f7ea15.jpg",
-        "url": "https://open.spotify.com/track/70LcF31zb1H0PyJoS1Sx1r"
       }
     ]
   },
@@ -1180,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 30,
-      "memory": 90,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.4,
-        "memory": 9436
+        "cpu": 346.4,
+        "memory": 9501
       }
     },
     {
@@ -1195,8 +1189,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 774.8,
-        "memory": 4096
+        "cpu": 763.1,
+        "memory": 4098
       }
     },
     {
@@ -1206,8 +1200,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 6.9,
-        "memory": 5427
+        "cpu": 9.4,
+        "memory": 5433
       }
     }
   ]
