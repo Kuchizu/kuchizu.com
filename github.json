@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-28T15:44:26.327Z",
+  "updated_at": "2025-12-28T15:57:45.427Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1148,13 +1148,7 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": {
-      "name": "Вокзал",
-      "artist": "ПОЧТИСЧАСТЛИВ, 50 оттенков",
-      "album": "Вокзал",
-      "image": "/data/images/017c1a14cfb9.jpg",
-      "url": "https://open.spotify.com/track/4299KajWz33rPZwODl9ErA"
-    },
+    "currentlyPlaying": null,
     "recentTracks": [
       {
         "name": "Luv Letter",
@@ -1184,8 +1178,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.8,
-        "memory": 9586
+        "cpu": 0.6,
+        "memory": 9594
       }
     },
     {
@@ -1195,19 +1189,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 784.8,
+        "cpu": 775.8,
         "memory": 4095
       }
     },
     {
       "name": "master",
       "uptime": 130,
-      "memory": 45,
+      "memory": 47,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 7.9,
-        "memory": 4914
+        "cpu": 8.8,
+        "memory": 4965
       }
     }
   ]
