@@ -35,8 +35,8 @@ jobs:
             git rev-parse --short HEAD > .commit
 
             # Build images
-            docker build -t kuchizu/portfolio:latest . &
-            docker build -f Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest . &
+            docker build -f docker/Dockerfile -t kuchizu/portfolio:latest . &
+            docker build -f docker/Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest . &
             docker build -t kuchizu/spotify-service:latest services/spotify/ &
             docker build -t kuchizu/steam-service:latest services/steam/ &
             wait

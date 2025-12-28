@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
+const IMAGES_DIR = path.join(__dirname, '..', 'public', 'data', 'images');
 const BASE_URL = '/data/images';
 
 function getImageFilename(url) {

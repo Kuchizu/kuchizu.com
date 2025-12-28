@@ -30,10 +30,8 @@ README.md
 # Kubernetes
 k8s
 
-# Docker
-Dockerfile
+# Docker (keep docker/ folder but ignore compose for dev)
 .dockerignore
-docker-compose.yml
 
 # Tools
 tools

@@ -2,13 +2,16 @@ FROM nginx:alpine
 
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY index.html /usr/share/nginx/html/
-COPY css/ /usr/share/nginx/html/css/
-COPY js/ /usr/share/nginx/html/js/
-COPY images/ /usr/share/nginx/html/images/
+COPY public/index.html /usr/share/nginx/html/
+COPY public/404.html /usr/share/nginx/html/
+COPY public/robots.txt /usr/share/nginx/html/
+COPY public/sitemap.xml /usr/share/nginx/html/
+COPY public/css/ /usr/share/nginx/html/css/
+COPY public/js/ /usr/share/nginx/html/js/
+COPY public/images/ /usr/share/nginx/html/images/
 COPY .commit /usr/share/nginx/html/.commit
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chmod -R 755 /usr/share/nginx/html

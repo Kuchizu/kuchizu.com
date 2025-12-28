@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 — Kuchizu</title>
+    <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            background: #09090b;
+            color: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .container { max-width: 320px; }
+        h1 { font-size: 4rem; font-weight: 600; margin-bottom: 0.5rem; opacity: 0.3; }
+        p { color: #71717a; font-size: 0.875rem; margin-bottom: 1.5rem; }
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 0.5rem;
+            color: #fafafa;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        a:hover { background: #27272a; border-color: #3f3f46; }
+        a svg { width: 16px; height: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p>Page not found</p>
+        <a href="/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to home
+        </a>
+    </div>
+</body>
+</html>

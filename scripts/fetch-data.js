@@ -30,7 +30,7 @@ async function main() {
     console.log('Downloading images...');
     data = await processImages(data);
 
-    const outputPath = path.join(__dirname, '..', 'data', 'github.json');
+    const outputPath = path.join(__dirname, '..', 'public', 'data', 'github.json');
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
 
