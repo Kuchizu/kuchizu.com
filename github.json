@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-28T19:24:39.140Z",
+  "updated_at": "2025-12-28T19:40:56.429Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1089,10 +1089,10 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Offline",
-    "isOnline": false,
-    "inGame": null,
-    "gameId": null,
+    "status": "Away",
+    "isOnline": true,
+    "inGame": "Hollow Knight: Silksong",
+    "gameId": "1030300",
     "recentGames": [
       {
         "appid": 1030300,
@@ -1151,6 +1151,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "Pass on (Vocal. Sinclair)",
+        "artist": "ProjectMoon",
+        "image": "/data/images/fbe4938ce618.jpg",
+        "url": "https://open.spotify.com/track/53E5Gd1JTv3ITNh4P6Fj57"
+      },
+      {
         "name": "私は雨",
         "artist": "稲葉曇",
         "image": "/data/images/ccc17439738c.jpg",
@@ -1161,12 +1167,6 @@
         "artist": "東京真中",
         "image": "/data/images/4421061a950a.jpg",
         "url": "https://open.spotify.com/track/3J8h8AUh100VIaFbSjCxB4"
-      },
-      {
-        "name": "PPPP (feat. Hatsune Miku, Kasane Teto)",
-        "artist": "TAK, Hatsune Miku, Kasane Teto",
-        "image": "/data/images/bf884aebaabc.jpg",
-        "url": "https://open.spotify.com/track/6J3pPfXLujwsWQpvR6XMgC"
       }
     ]
   },
@@ -1174,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 30,
-      "memory": 91,
+      "memory": 90,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 346.4,
-        "memory": 9501
+        "cpu": 0.7,
+        "memory": 9435
       }
     },
     {
@@ -1189,19 +1189,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 763.1,
-        "memory": 4098
+        "cpu": 776.3,
+        "memory": 4101
       }
     },
     {
       "name": "master",
       "uptime": 130,
-      "memory": 49,
+      "memory": 43,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 9.4,
-        "memory": 5433
+        "cpu": 6,
+        "memory": 4594
       }
     }
   ]
