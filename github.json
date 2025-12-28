@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-28T17:45:03.074Z",
+  "updated_at": "2025-12-28T17:58:05.627Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1149,26 +1149,7 @@
   },
   "spotify": {
     "currentlyPlaying": null,
-    "recentTracks": [
-      {
-        "name": "Luv Letter",
-        "artist": "DJ Okawari",
-        "image": "/data/images/d203241b8c28.jpg",
-        "url": "https://open.spotify.com/track/60mjatPf9M1fXkBmei0ATb"
-      },
-      {
-        "name": "POP IN 2",
-        "artist": "B小町, ルビー(CV:伊駒ゆりえ), 有馬かな(CV:潘めぐみ), MEMちょ(CV:大久保瑠美)",
-        "image": "/data/images/20a195640ba7.jpg",
-        "url": "https://open.spotify.com/track/5lrWzVarOIEauzOloHRCDj"
-      },
-      {
-        "name": "Amekumizore",
-        "artist": "Es",
-        "image": "/data/images/83ec34465fae.jpg",
-        "url": "https://open.spotify.com/track/6pcllU5zHHKV1LADiUR8sd"
-      }
-    ]
+    "recentTracks": []
   },
   "servers": [
     {
@@ -1178,8 +1159,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 279.1,
-        "memory": 9421
+        "cpu": 0.3,
+        "memory": 9431
       }
     },
     {
@@ -1189,8 +1170,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 759.8,
-        "memory": 4095
+        "cpu": 768.8,
+        "memory": 4096
       }
     },
     {
@@ -1200,8 +1181,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 6.8,
-        "memory": 5229
+        "cpu": 3.1,
+        "memory": 5224
       }
     }
   ]
