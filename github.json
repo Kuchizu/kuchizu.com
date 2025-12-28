@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-28T15:27:32.143Z",
+  "updated_at": "2025-12-28T15:44:26.327Z",
   "github": {
     "stats": {
       "repos": 16,
@@ -1148,8 +1148,20 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": null,
+    "currentlyPlaying": {
+      "name": "Вокзал",
+      "artist": "ПОЧТИСЧАСТЛИВ, 50 оттенков",
+      "album": "Вокзал",
+      "image": "/data/images/017c1a14cfb9.jpg",
+      "url": "https://open.spotify.com/track/4299KajWz33rPZwODl9ErA"
+    },
     "recentTracks": [
+      {
+        "name": "Luv Letter",
+        "artist": "DJ Okawari",
+        "image": "/data/images/d203241b8c28.jpg",
+        "url": "https://open.spotify.com/track/60mjatPf9M1fXkBmei0ATb"
+      },
       {
         "name": "POP IN 2",
         "artist": "B小町, ルビー(CV:伊駒ゆりえ), 有馬かな(CV:潘めぐみ), MEMちょ(CV:大久保瑠美)",
@@ -1161,12 +1173,6 @@
         "artist": "Es",
         "image": "/data/images/83ec34465fae.jpg",
         "url": "https://open.spotify.com/track/6pcllU5zHHKV1LADiUR8sd"
-      },
-      {
-        "name": "Miku",
-        "artist": "Anamanaguchi, Hatsune Miku",
-        "image": "/data/images/bbe42bd9bc2b.jpg",
-        "url": "https://open.spotify.com/track/7aux5UvnlBDYlrlwoczifW"
       }
     ]
   },
@@ -1178,8 +1184,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 5.2,
-        "memory": 9612
+        "cpu": 0.8,
+        "memory": 9586
       }
     },
     {
@@ -1189,19 +1195,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 759.4,
+        "cpu": 784.8,
         "memory": 4095
       }
     },
     {
       "name": "master",
       "uptime": 130,
-      "memory": 46,
+      "memory": 45,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 2.7,
-        "memory": 4938
+        "cpu": 7.9,
+        "memory": 4914
       }
     }
   ]
