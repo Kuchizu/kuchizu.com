@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T11:45:29.658Z",
+  "updated_at": "2025-12-29T13:00:47.042Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1089,10 +1089,10 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Offline",
-    "isOnline": false,
-    "inGame": null,
-    "gameId": null,
+    "status": "Away",
+    "isOnline": true,
+    "inGame": "Hollow Knight: Silksong",
+    "gameId": "1030300",
     "recentGames": [
       {
         "appid": 1030300,
@@ -1151,6 +1151,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "急性きゅ-せっきんちゅ毒",
+        "artist": "gaogao",
+        "image": "/data/images/705f66ac03a3.jpg",
+        "url": "https://open.spotify.com/track/6XGN80L6iaEvWrxNmN9s6g"
+      },
+      {
         "name": "OMAJINAI",
         "artist": "NAKISO",
         "image": "/data/images/0b6239401884.jpg",
@@ -1161,12 +1167,6 @@
         "artist": "wowaka",
         "image": "/data/images/66c07add94e3.jpg",
         "url": "https://open.spotify.com/track/4gQWtiBPCL655Z2SCbwNyN"
-      },
-      {
-        "name": "Mimukauwa Nice Try",
-        "artist": "nunununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununu",
-        "image": "/data/images/9bbe0646c8f0.jpg",
-        "url": "https://open.spotify.com/track/5cuzTmu7d829jHMRjaVCLy"
       }
     ]
   },
@@ -1178,30 +1178,30 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.7,
-        "memory": 9574
+        "cpu": 1.2,
+        "memory": 9562
       }
     },
     {
       "name": "prod_2",
-      "uptime": 349,
+      "uptime": 350,
       "memory": 78,
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 656.8,
-        "memory": 4135
+        "cpu": 779.7,
+        "memory": 4126
       }
     },
     {
       "name": "master",
-      "uptime": 130,
+      "uptime": 131,
       "memory": 46,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 0,
-        "memory": 5053
+        "cpu": 13.7,
+        "memory": 5070
       }
     }
   ]
