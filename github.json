@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T11:27:49.185Z",
+  "updated_at": "2025-12-29T11:45:29.658Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1151,6 +1151,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "OMAJINAI",
+        "artist": "NAKISO",
+        "image": "/data/images/0b6239401884.jpg",
+        "url": "https://open.spotify.com/track/15BRu3pGx0AHvID3pBZV6J"
+      },
+      {
         "name": "裏表ラバーズ -MIKUNOPOLIS in LOS ANGELES Live",
         "artist": "wowaka",
         "image": "/data/images/66c07add94e3.jpg",
@@ -1161,12 +1167,6 @@
         "artist": "nunununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununu",
         "image": "/data/images/9bbe0646c8f0.jpg",
         "url": "https://open.spotify.com/track/5cuzTmu7d829jHMRjaVCLy"
-      },
-      {
-        "name": "Lost One's Weeping",
-        "artist": "Neru",
-        "image": "/data/images/314b2cd30cc7.jpg",
-        "url": "https://open.spotify.com/track/1XWvuJ0cwnqPtfXcSKU8Av"
       }
     ]
   },
@@ -1174,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 31,
-      "memory": 90,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.3,
-        "memory": 9468
+        "cpu": 0.7,
+        "memory": 9574
       }
     },
     {
@@ -1189,8 +1189,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 776.4,
-        "memory": 4131
+        "cpu": 656.8,
+        "memory": 4135
       }
     },
     {
@@ -1200,8 +1200,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3.9,
-        "memory": 5046
+        "cpu": 0,
+        "memory": 5053
       }
     }
   ]
