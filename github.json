@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T08:41:20.723Z",
+  "updated_at": "2025-12-29T09:02:52.883Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1151,22 +1151,22 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "HITO Mania",
+        "artist": "Sasuke Haraguchi",
+        "image": "/data/images/d2ea31d0397f.jpg",
+        "url": "https://open.spotify.com/track/4deK4ZvtN70312pN4ny2lK"
+      },
+      {
+        "name": "常温じゃない関係 (2020 TOKYO MIX)",
+        "artist": "Inshow ha",
+        "image": "/data/images/be0562950722.jpg",
+        "url": "https://open.spotify.com/track/5gGwonjHqVjeGwkeOF8V0p"
+      },
+      {
         "name": "Pass on (Vocal. Sinclair)",
         "artist": "ProjectMoon",
         "image": "/data/images/fbe4938ce618.jpg",
         "url": "https://open.spotify.com/track/53E5Gd1JTv3ITNh4P6Fj57"
-      },
-      {
-        "name": "私は雨",
-        "artist": "稲葉曇",
-        "image": "/data/images/ccc17439738c.jpg",
-        "url": "https://open.spotify.com/track/3s5sFHV8VTzg0CSXy3gz5y"
-      },
-      {
-        "name": "Doomer",
-        "artist": "東京真中",
-        "image": "/data/images/4421061a950a.jpg",
-        "url": "https://open.spotify.com/track/3J8h8AUh100VIaFbSjCxB4"
       }
     ]
   },
@@ -1178,8 +1178,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 396.8,
-        "memory": 9497
+        "cpu": 0.3,
+        "memory": 9512
       }
     },
     {
@@ -1189,19 +1189,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 781.2,
-        "memory": 4127
+        "cpu": 1.3,
+        "memory": 4128
       }
     },
     {
       "name": "master",
       "uptime": 130,
-      "memory": 47,
+      "memory": 48,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 8.7,
-        "memory": 5014
+        "cpu": 3.6,
+        "memory": 5021
       }
     }
   ]
