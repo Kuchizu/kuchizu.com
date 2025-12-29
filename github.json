@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T09:46:10.479Z",
+  "updated_at": "2025-12-29T10:32:16.341Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1151,6 +1151,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "裏表ラバーズ -MIKUNOPOLIS in LOS ANGELES Live",
+        "artist": "wowaka",
+        "image": "/data/images/66c07add94e3.jpg",
+        "url": "https://open.spotify.com/track/4gQWtiBPCL655Z2SCbwNyN"
+      },
+      {
         "name": "Mimukauwa Nice Try",
         "artist": "nunununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununununu",
         "image": "/data/images/9bbe0646c8f0.jpg",
@@ -1161,12 +1167,6 @@
         "artist": "Neru",
         "image": "/data/images/314b2cd30cc7.jpg",
         "url": "https://open.spotify.com/track/1XWvuJ0cwnqPtfXcSKU8Av"
-      },
-      {
-        "name": "天天天国地獄国",
-        "artist": "Aiobahn +81, Nanahira, P丸様｡",
-        "image": "/data/images/eaa69b0d4000.jpg",
-        "url": "https://open.spotify.com/track/2dkIbR4mudsHg45av3YwxQ"
       }
     ]
   },
@@ -1174,12 +1174,12 @@
     {
       "name": "prod_1",
       "uptime": 31,
-      "memory": 90,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.6,
-        "memory": 9474
+        "cpu": 0.4,
+        "memory": 9558
       }
     },
     {
@@ -1189,8 +1189,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 762.9,
-        "memory": 4146
+        "cpu": 562.9,
+        "memory": 4143
       }
     },
     {
@@ -1200,8 +1200,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 9.4,
-        "memory": 5037
+        "cpu": 3.5,
+        "memory": 5001
       }
     }
   ]
