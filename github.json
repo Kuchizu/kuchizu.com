@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T19:25:19.851Z",
+  "updated_at": "2025-12-29T19:41:41.237Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1155,6 +1155,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "Pass on (Vocal. Sinclair)",
+        "artist": "ProjectMoon",
+        "image": "/data/images/fbe4938ce618.jpg",
+        "url": "https://open.spotify.com/track/53E5Gd1JTv3ITNh4P6Fj57"
+      },
+      {
         "name": "急性きゅ-せっきんちゅ毒",
         "artist": "gaogao",
         "image": "/data/images/705f66ac03a3.jpg",
@@ -1165,12 +1171,6 @@
         "artist": "NAKISO",
         "image": "/data/images/0b6239401884.jpg",
         "url": "https://open.spotify.com/track/15BRu3pGx0AHvID3pBZV6J"
-      },
-      {
-        "name": "裏表ラバーズ -MIKUNOPOLIS in LOS ANGELES Live",
-        "artist": "wowaka",
-        "image": "/data/images/66c07add94e3.jpg",
-        "url": "https://open.spotify.com/track/4gQWtiBPCL655Z2SCbwNyN"
       }
     ]
   },
@@ -1182,8 +1182,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.5,
-        "memory": 9446
+        "cpu": 0.2,
+        "memory": 9438
       }
     },
     {
@@ -1193,19 +1193,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 533.4,
+        "cpu": 775,
         "memory": 4135
       }
     },
     {
       "name": "master",
       "uptime": 131,
-      "memory": 46,
+      "memory": 47,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 5.7,
-        "memory": 4940
+        "cpu": 548.9,
+        "memory": 5177
       }
     }
   ]
