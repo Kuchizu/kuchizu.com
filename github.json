@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T19:55:06.106Z",
+  "updated_at": "2025-12-29T20:32:33.306Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -62,48 +62,48 @@
     "activity": [
       {
         "type": "PullRequestEvent",
+        "repo": "codex-team/hawk.workers",
+        "payload": {
+          "action": "opened",
+          "commits": 0
+        },
+        "created_at": "2025-12-29T20:18:30Z"
+      },
+      {
+        "type": "CreateEvent",
+        "repo": "codex-team/hawk.workers",
+        "payload": {
+          "ref_type": "branch",
+          "commits": 0
+        },
+        "created_at": "2025-12-29T20:18:26Z"
+      },
+      {
+        "type": "PullRequestEvent",
+        "repo": "codex-team/hawk.garage",
+        "payload": {
+          "action": "opened",
+          "commits": 0
+        },
+        "created_at": "2025-12-29T20:17:37Z"
+      },
+      {
+        "type": "CreateEvent",
+        "repo": "codex-team/hawk.garage",
+        "payload": {
+          "ref_type": "branch",
+          "commits": 0
+        },
+        "created_at": "2025-12-29T20:17:33Z"
+      },
+      {
+        "type": "PullRequestEvent",
         "repo": "codex-team/notes.web",
         "payload": {
           "action": "opened",
           "commits": 0
         },
         "created_at": "2025-12-29T16:54:28Z"
-      },
-      {
-        "type": "CreateEvent",
-        "repo": "codex-team/notes.web",
-        "payload": {
-          "ref_type": "branch",
-          "commits": 0
-        },
-        "created_at": "2025-12-29T16:54:16Z"
-      },
-      {
-        "type": "PullRequestEvent",
-        "repo": "codex-team/hawk.api.nodejs",
-        "payload": {
-          "action": "opened",
-          "commits": 0
-        },
-        "created_at": "2025-12-29T15:24:56Z"
-      },
-      {
-        "type": "CreateEvent",
-        "repo": "codex-team/hawk.api.nodejs",
-        "payload": {
-          "ref_type": "branch",
-          "commits": 0
-        },
-        "created_at": "2025-12-29T15:24:50Z"
-      },
-      {
-        "type": "PullRequestEvent",
-        "repo": "emmabostian/developer-portfolios",
-        "payload": {
-          "action": "merged",
-          "commits": 0
-        },
-        "created_at": "2025-12-28T12:31:20Z"
       }
     ],
     "contributions": [
@@ -1084,7 +1084,7 @@
       },
       {
         "date": "2025-12-29",
-        "count": 2,
+        "count": 4,
         "level": 1
       }
     ]
@@ -1093,10 +1093,10 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Online",
+    "status": "Away",
     "isOnline": true,
-    "inGame": "OBS Studio",
-    "gameId": "1905180",
+    "inGame": "Hollow Knight: Silksong",
+    "gameId": "1030300",
     "recentGames": [
       {
         "appid": 1030300,
@@ -1155,6 +1155,12 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "Iron Lotus",
+        "artist": "Mili",
+        "image": "/data/images/2c80c86b8191.jpg",
+        "url": "https://open.spotify.com/track/4vQxoBgjkODJbFyzOdYLfw"
+      },
+      {
         "name": "Pass on (Vocal. Sinclair)",
         "artist": "ProjectMoon",
         "image": "/data/images/fbe4938ce618.jpg",
@@ -1165,12 +1171,6 @@
         "artist": "gaogao",
         "image": "/data/images/705f66ac03a3.jpg",
         "url": "https://open.spotify.com/track/6XGN80L6iaEvWrxNmN9s6g"
-      },
-      {
-        "name": "OMAJINAI",
-        "artist": "NAKISO",
-        "image": "/data/images/0b6239401884.jpg",
-        "url": "https://open.spotify.com/track/15BRu3pGx0AHvID3pBZV6J"
       }
     ]
   },
@@ -1178,34 +1178,34 @@
     {
       "name": "prod_1",
       "uptime": 31,
-      "memory": 90,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.3,
-        "memory": 9472
+        "cpu": 343.2,
+        "memory": 9533
       }
     },
     {
       "name": "prod_2",
       "uptime": 350,
-      "memory": 79,
+      "memory": 80,
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 754.3,
-        "memory": 4136
+        "cpu": 689.2,
+        "memory": 4139
       }
     },
     {
       "name": "master",
       "uptime": 131,
-      "memory": 47,
+      "memory": 48,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 4.7,
-        "memory": 5214
+        "cpu": 8.1,
+        "memory": 5244
       }
     }
   ]
