@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T13:00:47.042Z",
+  "updated_at": "2025-12-29T13:50:17.971Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1089,16 +1089,16 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Away",
+    "status": "Online",
     "isOnline": true,
-    "inGame": "Hollow Knight: Silksong",
-    "gameId": "1030300",
+    "inGame": null,
+    "gameId": null,
     "recentGames": [
       {
         "appid": 1030300,
         "name": "Hollow Knight: Silksong",
-        "playtime_2weeks": 28,
-        "playtime_forever": 61,
+        "playtime_2weeks": 29,
+        "playtime_forever": 62,
         "icon": "/data/images/26828634f66a.jpg"
       },
       {
@@ -1178,8 +1178,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 1.2,
-        "memory": 9562
+        "cpu": 396.6,
+        "memory": 9515
       }
     },
     {
@@ -1189,19 +1189,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 779.7,
-        "memory": 4126
+        "cpu": 457.5,
+        "memory": 4133
       }
     },
     {
       "name": "master",
       "uptime": 131,
-      "memory": 46,
+      "memory": 47,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 13.7,
-        "memory": 5070
+        "cpu": 3.7,
+        "memory": 5109
       }
     }
   ]
