@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-29T17:47:07.177Z",
+  "updated_at": "2025-12-29T18:40:07.236Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1093,10 +1093,10 @@
     "personaname": "Good juju",
     "avatar": "/data/images/8be616b3b50f.jpg",
     "profileurl": "https://steamcommunity.com/id/Kuchizu/",
-    "status": "Online",
+    "status": "Away",
     "isOnline": true,
-    "inGame": null,
-    "gameId": null,
+    "inGame": "OBS Studio",
+    "gameId": "1905180",
     "recentGames": [
       {
         "appid": 1030300,
@@ -1178,12 +1178,12 @@
     {
       "name": "prod_1",
       "uptime": 31,
-      "memory": 91,
+      "memory": 90,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 323.7,
-        "memory": 9489
+        "cpu": 398,
+        "memory": 9445
       }
     },
     {
@@ -1193,19 +1193,19 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 774,
-        "memory": 4137
+        "cpu": 722,
+        "memory": 4135
       }
     },
     {
       "name": "master",
       "uptime": 131,
-      "memory": 45,
+      "memory": 46,
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3.8,
-        "memory": 4522
+        "cpu": 3.5,
+        "memory": 4724
       }
     }
   ]
