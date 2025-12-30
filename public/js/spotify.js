@@ -24,6 +24,8 @@ let currentDuration = 0;
 let isPlaying = false;
 
 function updateSpotifyHeader(data) {
+    if (!data) return;
+
     const avatarEl = document.getElementById('spotify-avatar');
     const nameEl = document.getElementById('spotify-name');
     const stateEl = document.getElementById('spotify-state');
@@ -85,7 +87,7 @@ function renderNowPlaying(cp) {
                 <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current${isNewTrack ? ' fade-in' : ''}${cp.playing ? '' : ' paused'}">
                     <img class="spotify-current-img" src="${cp.image}" alt="${cp.album || cp.name}" loading="lazy">
                     <div class="spotify-current-info">
-                        <div class="spotify-current-label">${cp.playing ? 'Now Playing' : 'Paused'}</div>
+                        <!-- <div class="spotify-current-label">${cp.playing ? 'Now Listening' : 'Paused'}</div> -->
                         <div class="spotify-current-name">${cp.name}</div>
                         <div class="spotify-current-artist">${cp.artist}</div>
                         <div class="spotify-progress">
@@ -104,7 +106,7 @@ function renderNowPlaying(cp) {
             const label = el.querySelector('.spotify-current-label');
             const img = el.querySelector('.spotify-current-img');
 
-            if (label) label.textContent = cp.playing ? 'Now Playing' : 'Paused';
+            // if (label) label.textContent = cp.playing ? 'Now Listening' : 'Paused';
             current.classList.toggle('paused', !cp.playing);
 
             // Only update image if URL changed

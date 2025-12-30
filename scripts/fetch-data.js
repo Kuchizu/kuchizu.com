@@ -35,11 +35,11 @@ async function main() {
     fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
 
     console.log('Done:', outputPath);
-    console.log('  GitHub: ✓');
-    console.log('  Steam:', steam ? '✓' : 'skipped (no API key)');
-    console.log('  Shikimori:', shikimori ? '✓' : 'skipped');
-    console.log('  Spotify:', spotify ? '✓' : 'skipped (no credentials)');
-    console.log('  Servers:', servers ? `✓ (${servers.length})` : 'skipped (no SERVERS)');
+    console.log('  GitHub: +');
+    console.log('  Steam:', steam ? '+' : 'skipped (no API key)');
+    console.log('  Shikimori:', shikimori ? '+' : 'skipped');
+    console.log('  Spotify:', spotify ? '+' : 'skipped (no credentials)');
+    console.log('  Servers:', servers ? `+ (${servers.length})` : 'skipped (no SERVERS)');
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

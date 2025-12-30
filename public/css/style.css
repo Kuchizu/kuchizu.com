@@ -220,7 +220,7 @@ h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-botto
 
 .spotify-now-playing { display: none; margin-bottom: 0.5rem; }
 .spotify-now-playing.active { display: block; }
-.spotify-current { display: flex; gap: 0.5rem; padding: 0.5rem; background: linear-gradient(135deg, #1a1a1a 0%, #1db954 200%); border-radius: 0.375rem; text-decoration: none; transition: all 0.3s ease; }
+.spotify-current { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: linear-gradient(135deg, #1a1a1a 0%, #1db954 200%); border-radius: 0.375rem; text-decoration: none; transition: all 0.3s ease; }
 .spotify-current:hover { opacity: 0.9; }
 .spotify-current.paused { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 200%); opacity: 0.7; filter: grayscale(30%); }
 .spotify-current.paused:hover { opacity: 0.85; }

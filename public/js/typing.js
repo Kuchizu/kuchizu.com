@@ -8,7 +8,8 @@ const phrases = [
     'Makima One Love',
     'Cat Lover',
     'Coffee Addict',
-    'Open Source Contributor'
+    'Open Source Contributor',
+    'Night Owl'
 ];
 
 let phraseIndex = 0;

@@ -99,7 +99,8 @@ function renderActivity(activity) {
     el.innerHTML = activity.slice(0, 3).map(e => {
         const name = e.repo.split('/')[1];
         const url = `https://github.com/${e.repo}`;
-        let text = e.type === 'PushEvent' ? `Pushed ${e.payload.commits} commit${e.payload.commits !== 1 ? 's' : ''} to`
+        const commits = e.payload.commits || 1;
+        let text = e.type === 'PushEvent' ? `Pushed ${commits} commit${commits !== 1 ? 's' : ''} to`
             : e.type === 'CreateEvent' ? `Created ${e.payload.ref_type} in`
             : e.type === 'WatchEvent' ? 'Starred'
             : e.type === 'IssuesEvent' ? `${e.payload.action} issue in`
