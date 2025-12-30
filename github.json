@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-30T14:34:01.863Z",
+  "updated_at": "2025-12-30T14:56:30.714Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -66,6 +66,22 @@
         "payload": {
           "commits": 0
         },
+        "created_at": "2025-12-30T14:47:30Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-30T14:43:50Z"
+      },
+      {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
         "created_at": "2025-12-30T14:26:59Z"
       },
       {
@@ -85,24 +101,6 @@
           "commits": 0
         },
         "created_at": "2025-12-29T20:18:26Z"
-      },
-      {
-        "type": "PullRequestEvent",
-        "repo": "codex-team/hawk.garage",
-        "payload": {
-          "action": "opened",
-          "commits": 0
-        },
-        "created_at": "2025-12-29T20:17:37Z"
-      },
-      {
-        "type": "CreateEvent",
-        "repo": "codex-team/hawk.garage",
-        "payload": {
-          "ref_type": "branch",
-          "commits": 0
-        },
-        "created_at": "2025-12-29T20:17:33Z"
       }
     ],
     "contributions": [
@@ -1101,7 +1099,7 @@
         "appid": 1030300,
         "name": "Hollow Knight: Silksong",
         "playtime_2weeks": 32,
-        "playtime_forever": 64,
+        "playtime_forever": 65,
         "icon": "/data/images/26828634f66a.jpg"
       },
       {
@@ -1128,54 +1126,33 @@
     ],
     "totalGames": 50
   },
-  "shikimori": {
-    "nickname": "Kuchizu",
-    "avatar": "/data/images/91db5fdca344.png",
-    "url": "https://shikimori.one/Kuchizu",
-    "watching": 2,
-    "completed": 208,
-    "total": 343,
-    "current": [
-      {
-        "name": "Мой братик теперь не братик!",
-        "image": "/data/images/403b1ba57a79.jpg",
-        "episodes": "0/12",
-        "url": "https://shikimori.one/animes/51678-oniichan-wa-oshimai"
-      },
-      {
-        "name": "Гениальный целитель, который исцелял в одно мгновение, но был изгнан как бесполезный, теперь наслаждается жизнью в качестве тёмного целителя",
-        "image": "/data/images/0edd3b378949.jpg",
-        "episodes": "0/12",
-        "url": "https://shikimori.one/animes/58359-isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou-sareta-tensai-chiyushi-yami-healer-toshite-tanoshiku-ikiru"
-      }
-    ]
-  },
+  "shikimori": null,
   "spotify": {
     "currentlyPlaying": {
-      "name": "Reiku-shitou",
-      "artist": "Sleeping city, WaMi",
-      "album": "Sleeping City",
-      "image": "/data/images/1efcd6c539a1.jpg",
-      "url": "https://open.spotify.com/track/4w1aLfMQajq99riqCOHHO3"
+      "name": "Kashika",
+      "artist": "ゆーり",
+      "album": "Kashika",
+      "image": "/data/images/bde52defe31d.jpg",
+      "url": "https://open.spotify.com/track/5srqLajRQbHiHLuRBKm0I2"
     },
     "recentTracks": [
       {
-        "name": "GOAT!",
-        "artist": "kurousagi",
-        "image": "/data/images/9c4ce94ad4e5.jpg",
-        "url": "https://open.spotify.com/track/74yU5b6G7ykPmBDx7KBM2o"
+        "name": "Utchai",
+        "artist": "ゆーり",
+        "image": "/data/images/b9e76114bd60.jpg",
+        "url": "https://open.spotify.com/track/2tSHh1iaoxz5eMGV6qtv0s"
       },
       {
-        "name": "レイニーブーツ",
-        "artist": "稲葉曇",
-        "image": "/data/images/d97377eae574.jpg",
-        "url": "https://open.spotify.com/track/1OQwvsS1fqohD6xH7zoOy7"
+        "name": "Suki",
+        "artist": "ゆーり",
+        "image": "/data/images/ff7f37c92dd9.jpg",
+        "url": "https://open.spotify.com/track/6XixU9usPJY7p0Jg9m9FEP"
       },
       {
-        "name": "Iron Lotus",
-        "artist": "Mili",
-        "image": "/data/images/2c80c86b8191.jpg",
-        "url": "https://open.spotify.com/track/4vQxoBgjkODJbFyzOdYLfw"
+        "name": "Heart 111",
+        "artist": "ゆーり",
+        "image": "/data/images/8dd353e13a5b.jpg",
+        "url": "https://open.spotify.com/track/4Co1OjIiGp0Fa5yr7rndy1"
       }
     ]
   },
@@ -1183,12 +1160,12 @@
     {
       "name": "prod_1",
       "uptime": 32,
-      "memory": 93,
+      "memory": 91,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 0.8,
-        "memory": 9845
+        "cpu": 391.4,
+        "memory": 9511
       }
     },
     {
@@ -1198,8 +1175,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 778.1,
-        "memory": 4151
+        "cpu": 766.8,
+        "memory": 4149
       }
     },
     {
@@ -1209,8 +1186,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 2.4,
-        "memory": 5210
+        "cpu": 4.9,
+        "memory": 5243
       }
     }
   ]
