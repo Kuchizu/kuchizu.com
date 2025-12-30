@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-30T14:00:11.207Z",
+  "updated_at": "2025-12-30T14:34:01.863Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -61,6 +61,14 @@
     ],
     "activity": [
       {
+        "type": "PushEvent",
+        "repo": "Kuchizu/kuchizu.com",
+        "payload": {
+          "commits": 0
+        },
+        "created_at": "2025-12-30T14:26:59Z"
+      },
+      {
         "type": "PullRequestEvent",
         "repo": "codex-team/hawk.workers",
         "payload": {
@@ -95,15 +103,6 @@
           "commits": 0
         },
         "created_at": "2025-12-29T20:17:33Z"
-      },
-      {
-        "type": "PullRequestEvent",
-        "repo": "codex-team/notes.web",
-        "payload": {
-          "action": "opened",
-          "commits": 0
-        },
-        "created_at": "2025-12-29T16:54:28Z"
       }
     ],
     "contributions": [
@@ -1152,7 +1151,13 @@
     ]
   },
   "spotify": {
-    "currentlyPlaying": null,
+    "currentlyPlaying": {
+      "name": "Reiku-shitou",
+      "artist": "Sleeping city, WaMi",
+      "album": "Sleeping City",
+      "image": "/data/images/1efcd6c539a1.jpg",
+      "url": "https://open.spotify.com/track/4w1aLfMQajq99riqCOHHO3"
+    },
     "recentTracks": [
       {
         "name": "GOAT!",
@@ -1178,12 +1183,12 @@
     {
       "name": "prod_1",
       "uptime": 32,
-      "memory": 91,
+      "memory": 93,
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 351.4,
-        "memory": 9576
+        "cpu": 0.8,
+        "memory": 9845
       }
     },
     {
@@ -1193,8 +1198,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 766.9,
-        "memory": 4153
+        "cpu": 778.1,
+        "memory": 4151
       }
     },
     {
@@ -1204,8 +1209,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 4.8,
-        "memory": 5178
+        "cpu": 2.4,
+        "memory": 5210
       }
     }
   ]
