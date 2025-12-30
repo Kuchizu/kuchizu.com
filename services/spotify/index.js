@@ -7,6 +7,7 @@ const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 let accessToken = null;
 let tokenExpiry = 0;
 let currentData = null;
+let userProfile = null;
 const sseClients = new Set();
 
 async function refreshAccessToken() {
@@ -34,34 +35,84 @@ async function refreshAccessToken() {
     return accessToken;
 }
 
+async function fetchUserProfile() {
+    const token = await refreshAccessToken();
+    if (!token) return null;
+
+    if (!userProfile) {
+        const profileRes = await fetch('https://api.spotify.com/v1/me', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!profileRes.ok) return null;
+
+        const profileData = await profileRes.json();
+        userProfile = {
+            userName: profileData.display_name,
+            avatar: profileData.images?.[0]?.url || null,
+            profileUrl: profileData.external_urls?.spotify
+        };
+    }
+
+    // TODO: Fetch liked songs dynamically (requires user-library-read scope)
+    // For now, using static value
+    return { ...userProfile, likedSongs: 56 };
+}
+
+async function fetchRecentlyPlayed(token) {
+    try {
+        const res = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=3', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) return [];
+        const data = await res.json();
+        return (data.items || []).map(item => ({
+            name: item.track.name,
+            artist: item.track.artists.map(a => a.name).join(', '),
+            image: item.track.album.images[2]?.url || item.track.album.images[0]?.url,
+            url: item.track.external_urls.spotify
+        }));
+    } catch {
+        return [];
+    }
+}
+
 async function fetchNowPlaying() {
     const token = await refreshAccessToken();
     if (!token) return null;
+
+    const [profile, recentTracks] = await Promise.all([
+        fetchUserProfile(),
+        fetchRecentlyPlayed(token)
+    ]);
 
     const res = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
         headers: { 'Authorization': `Bearer ${token}` }
     });
 
     if (res.status === 204 || res.status === 202) {
-        return { playing: false };
+        return { playing: false, online: false, recentTracks, ...profile };
     }
 
-    if (!res.ok) return null;
+    if (!res.ok) return { playing: false, online: false, recentTracks, ...profile };
 
     const data = await res.json();
     if (!data.item) {
-        return { playing: false };
+        return { playing: false, online: true, recentTracks, ...profile };
     }
 
     return {
         playing: data.is_playing,
-        track: data.item.name,
+        online: true,
+        name: data.item.name,
         artist: data.item.artists.map(a => a.name).join(', '),
         album: data.item.album.name,
         image: data.item.album.images[1]?.url || data.item.album.images[0]?.url,
         url: data.item.external_urls.spotify,
         progress: data.progress_ms,
-        duration: data.item.duration_ms
+        duration: data.item.duration_ms,
+        recentTracks,
+        ...profile
     };
 }
 

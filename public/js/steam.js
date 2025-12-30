@@ -55,6 +55,9 @@ function updateSteamStatus(data) {
     if (inGame) {
         stateEl.textContent = 'In-Game';
         stateEl.className = 'steam-state in-game';
+        if (data.gameImage) {
+            playingEl.style.backgroundImage = `linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('${data.gameImage}')`;
+        }
         playingEl.innerHTML = `
             <div class="steam-playing-inner${isNew ? ' fade-in' : ''}">
                 <div class="steam-playing-label">Now Playing</div>
@@ -63,6 +66,7 @@ function updateSteamStatus(data) {
         `;
         playingEl.classList.add('active');
     } else {
+        playingEl.style.backgroundImage = '';
         stateEl.textContent = data.status || (data.online ? 'Online' : 'Offline');
         stateEl.className = 'steam-state' + (data.online || data.isOnline ? ' online' : '');
         playingEl.classList.remove('active');

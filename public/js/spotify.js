@@ -23,11 +23,47 @@ let progressTimestamp = 0;
 let currentDuration = 0;
 let isPlaying = false;
 
+function updateSpotifyHeader(data) {
+    const avatarEl = document.getElementById('spotify-avatar');
+    const nameEl = document.getElementById('spotify-name');
+    const stateEl = document.getElementById('spotify-state');
+    const footerEl = document.getElementById('spotify-footer');
+
+    if (avatarEl && data.avatar) {
+        avatarEl.src = data.avatar;
+        avatarEl.classList.remove('skeleton');
+    }
+    if (nameEl && data.userName) {
+        nameEl.textContent = data.userName;
+    }
+    if (stateEl) {
+        if (data.playing) {
+            stateEl.textContent = 'Listening';
+            stateEl.className = 'spotify-state listening';
+        } else if (data.online) {
+            stateEl.textContent = 'Online';
+            stateEl.className = 'spotify-state online';
+        } else {
+            stateEl.textContent = 'Offline';
+            stateEl.className = 'spotify-state';
+        }
+    }
+    if (footerEl && data.profileUrl) {
+        if (data.likedSongs && data.likedSongs > 0) {
+            footerEl.innerHTML = `<a href="${data.profileUrl}" target="_blank" rel="noopener">${data.likedSongs} liked</a>`;
+        } else {
+            footerEl.innerHTML = `<a href="${data.profileUrl}" target="_blank" rel="noopener">Profile</a>`;
+        }
+    }
+}
+
 function renderNowPlaying(cp) {
     const el = document.getElementById('spotify-now-playing');
     if (!el) return;
 
-    if (cp && cp.track) {
+    updateSpotifyHeader(cp);
+
+    if (cp && cp.name) {
         const isNewTrack = lastTrackUrl !== cp.url;
         const isNewImage = lastImageUrl !== cp.image;
         lastTrackUrl = cp.url;
@@ -47,10 +83,10 @@ function renderNowPlaying(cp) {
             const progressPercent = (progressStart / currentDuration) * 100;
             el.innerHTML = `
                 <a href="${cp.url}" target="_blank" rel="noopener" class="spotify-current${isNewTrack ? ' fade-in' : ''}${cp.playing ? '' : ' paused'}">
-                    <img class="spotify-current-img" src="${cp.image}" alt="${cp.album || cp.track}" loading="lazy">
+                    <img class="spotify-current-img" src="${cp.image}" alt="${cp.album || cp.name}" loading="lazy">
                     <div class="spotify-current-info">
                         <div class="spotify-current-label">${cp.playing ? 'Now Playing' : 'Paused'}</div>
-                        <div class="spotify-current-name">${cp.name || cp.track}</div>
+                        <div class="spotify-current-name">${cp.name}</div>
                         <div class="spotify-current-artist">${cp.artist}</div>
                         <div class="spotify-progress">
                             <div class="spotify-progress-bar" style="width: ${progressPercent}%"></div>
@@ -74,7 +110,7 @@ function renderNowPlaying(cp) {
             // Only update image if URL changed
             if (isNewImage && img) {
                 img.src = cp.image;
-                img.alt = cp.album || cp.track;
+                img.alt = cp.album || cp.name;
             }
         }
         el.classList.add('active');
@@ -154,6 +190,9 @@ function startSpotifyPolling() {
             const data = JSON.parse(e.data);
             if (!data.error) {
                 renderNowPlaying(data);
+                if (data.recentTracks) {
+                    renderRecentTracks(data.recentTracks);
+                }
             }
         } catch {}
     };

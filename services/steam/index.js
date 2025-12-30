@@ -37,11 +37,13 @@ async function fetchStatus() {
         }
 
         const states = ['Offline', 'Online', 'Busy', 'Away', 'Snooze', 'Looking to trade', 'Looking to play'];
+        const gameId = player.gameid || null;
         return {
             online: player.personastate > 0,
             status: states[player.personastate] || 'Offline',
             inGame: player.gameextrainfo || null,
-            gameId: player.gameid || null,
+            gameId,
+            gameImage: gameId ? `https://cdn.akamai.steamstatic.com/steam/apps/${gameId}/header.jpg` : null,
             avatar: player.avatarmedium,
             name: player.personaname
         };
