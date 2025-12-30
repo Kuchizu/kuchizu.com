@@ -1,5 +1,5 @@
 {
-  "updated_at": "2025-12-30T13:45:08.463Z",
+  "updated_at": "2025-12-30T14:00:11.207Z",
   "github": {
     "stats": {
       "repos": 15,
@@ -1155,22 +1155,22 @@
     "currentlyPlaying": null,
     "recentTracks": [
       {
+        "name": "GOAT!",
+        "artist": "kurousagi",
+        "image": "/data/images/9c4ce94ad4e5.jpg",
+        "url": "https://open.spotify.com/track/74yU5b6G7ykPmBDx7KBM2o"
+      },
+      {
+        "name": "レイニーブーツ",
+        "artist": "稲葉曇",
+        "image": "/data/images/d97377eae574.jpg",
+        "url": "https://open.spotify.com/track/1OQwvsS1fqohD6xH7zoOy7"
+      },
+      {
         "name": "Iron Lotus",
         "artist": "Mili",
         "image": "/data/images/2c80c86b8191.jpg",
         "url": "https://open.spotify.com/track/4vQxoBgjkODJbFyzOdYLfw"
-      },
-      {
-        "name": "Pass on (Vocal. Sinclair)",
-        "artist": "ProjectMoon",
-        "image": "/data/images/fbe4938ce618.jpg",
-        "url": "https://open.spotify.com/track/53E5Gd1JTv3ITNh4P6Fj57"
-      },
-      {
-        "name": "急性きゅ-せっきんちゅ毒",
-        "artist": "gaogao",
-        "image": "/data/images/705f66ac03a3.jpg",
-        "url": "https://open.spotify.com/track/6XGN80L6iaEvWrxNmN9s6g"
       }
     ]
   },
@@ -1182,8 +1182,8 @@
       "processes": {
         "online": 20,
         "total": 20,
-        "cpu": 1,
-        "memory": 9565
+        "cpu": 351.4,
+        "memory": 9576
       }
     },
     {
@@ -1193,8 +1193,8 @@
       "processes": {
         "online": 23,
         "total": 23,
-        "cpu": 774.5,
-        "memory": 4151
+        "cpu": 766.9,
+        "memory": 4153
       }
     },
     {
@@ -1204,8 +1204,8 @@
       "processes": {
         "online": 24,
         "total": 24,
-        "cpu": 3,
-        "memory": 5172
+        "cpu": 4.8,
+        "memory": 5178
       }
     }
   ]
