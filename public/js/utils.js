@@ -1,6 +1,6 @@
 function timeAgo(date) {
     const s = Math.floor((new Date() - new Date(date)) / 1000);
-    if (s < 60) return 'just now';
+    if (s < 5) return 'just now';
     if (s < 3600) {
         const m = Math.floor(s / 60);
         const sec = s % 60;

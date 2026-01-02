@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: spotify
-        image: kuchizu/spotify-service:latest
-        imagePullPolicy: Never
+        image: ghcr.io/kuchizu/spotify-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
         envFrom:

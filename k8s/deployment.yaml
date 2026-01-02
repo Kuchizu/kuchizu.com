@@ -23,8 +23,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: kuchizu/portfolio:latest
-        imagePullPolicy: Never
+        image: ghcr.io/kuchizu/portfolio:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
           name: http

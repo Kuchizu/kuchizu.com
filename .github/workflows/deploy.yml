@@ -7,9 +7,54 @@ on:
       - '*.md'
       - 'k8s/README.md'
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}
+
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - image: portfolio
+            context: .
+            file: docker/Dockerfile
+          - image: portfolio-fetcher
+            context: .
+            file: docker/Dockerfile.fetcher
+          - image: spotify-service
+            context: services/spotify
+            file: services/spotify/Dockerfile
+          - image: steam-service
+            context: services/steam
+            file: services/steam/Dockerfile
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.file }}
+          push: true
+          tags: ${{ env.IMAGE_PREFIX }}/${{ matrix.image }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -20,11 +65,12 @@ jobs:
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
           SERVERS: ${{ secrets.SERVERS }}
+          IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          envs: GITHUB_TOKEN,STEAM_API_KEY,SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,SERVERS
+          envs: GITHUB_TOKEN,STEAM_API_KEY,SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,SERVERS,IMAGE_PREFIX
           script: |
             if [ ! -d "/root/kuchizu.com" ]; then
               git clone https://github.com/Kuchizu/kuchizu.com.git /root/kuchizu.com
@@ -37,18 +83,11 @@ jobs:
             # Update sitemap lastmod
             sed -i "s|<lastmod>.*</lastmod>|<lastmod>$(date +%Y-%m-%d)</lastmod>|" public/sitemap.xml
 
-            # Build images
-            docker build -f docker/Dockerfile -t kuchizu/portfolio:latest . &
-            docker build -f docker/Dockerfile.fetcher -t kuchizu/portfolio-fetcher:latest . &
-            docker build -t kuchizu/spotify-service:latest services/spotify/ &
-            docker build -t kuchizu/steam-service:latest services/steam/ &
-            wait
-
-            # Import to k3s
-            docker save kuchizu/portfolio:latest | sudo k3s ctr images import - &
-            docker save kuchizu/portfolio-fetcher:latest | sudo k3s ctr images import - &
-            docker save kuchizu/spotify-service:latest | sudo k3s ctr images import - &
-            docker save kuchizu/steam-service:latest | sudo k3s ctr images import - &
+            # Pull images from GHCR
+            sudo k3s crictl pull $IMAGE_PREFIX/portfolio:latest &
+            sudo k3s crictl pull $IMAGE_PREFIX/portfolio-fetcher:latest &
+            sudo k3s crictl pull $IMAGE_PREFIX/spotify-service:latest &
+            sudo k3s crictl pull $IMAGE_PREFIX/steam-service:latest &
             wait
 
             # Apply k8s resources
@@ -73,3 +112,32 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
             -H "Content-Type: application/json" \
             --data '{"purge_everything":true}'
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: [build, deploy]
+    if: always()
+    steps:
+      - name: Send Telegram notification
+        run: |
+          if [ "${{ needs.deploy.result }}" == "success" ]; then
+            EMOJI="✅"
+            STATUS="deployed"
+          else
+            EMOJI="❌"
+            STATUS="failed"
+          fi
+
+          MESSAGE="${EMOJI} <b>kuchizu.com</b> ${STATUS}
+
+          <b>Commit:</b> <code>${{ github.sha }}</code>
+          <b>Author:</b> ${{ github.actor }}
+          <b>Message:</b> ${{ github.event.head_commit.message }}
+
+          <a href=\"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\">View logs</a>"
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d parse_mode="HTML" \
+            -d disable_web_page_preview="true" \
+            -d text="$MESSAGE"

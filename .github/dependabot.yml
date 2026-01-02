@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "ci"
+
+  - package-ecosystem: docker
+    directory: /docker
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "docker"
+
+  - package-ecosystem: docker
+    directory: /services/spotify
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "docker"
+
+  - package-ecosystem: docker
+    directory: /services/steam
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "docker"

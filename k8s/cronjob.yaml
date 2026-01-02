@@ -15,8 +15,8 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: fetcher
-              image: kuchizu/portfolio-fetcher:latest
-              imagePullPolicy: Never
+              image: ghcr.io/kuchizu/portfolio-fetcher:latest
+              imagePullPolicy: Always
               envFrom:
                 - secretRef:
                     name: portfolio-secrets
