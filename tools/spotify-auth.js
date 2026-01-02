@@ -14,7 +14,7 @@ const authUrl = `https://accounts.spotify.com/authorize?${new URLSearchParams({
     client_id: CLIENT_ID,
     response_type: 'code',
     redirect_uri: REDIRECT_URI,
-    scope: 'user-read-currently-playing user-read-recently-played'
+    scope: 'user-read-currently-playing user-read-recently-played user-read-private user-library-read'
 })}`;
 
 console.log('Add Redirect URI:', REDIRECT_URI);
