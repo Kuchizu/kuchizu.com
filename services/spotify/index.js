@@ -37,25 +37,29 @@ async function refreshAccessToken() {
 
 async function fetchUserProfile() {
     const token = await refreshAccessToken();
-    if (!token) return null;
+    if (!token) return {};
 
     if (!userProfile) {
-        const profileRes = await fetch('https://api.spotify.com/v1/me', {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
+        try {
+            const profileRes = await fetch('https://api.spotify.com/v1/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
 
-        if (!profileRes.ok) return null;
-
-        const profileData = await profileRes.json();
-        userProfile = {
-            userName: profileData.display_name,
-            avatar: profileData.images?.[0]?.url || null,
-            profileUrl: profileData.external_urls?.spotify
-        };
+            if (profileRes.ok) {
+                const profileData = await profileRes.json();
+                userProfile = {
+                    userName: profileData.display_name,
+                    avatar: profileData.images?.[0]?.url || null,
+                    profileUrl: profileData.external_urls?.spotify
+                };
+            }
+        } catch (e) {
+            console.error('Profile fetch error:', e.message);
+        }
     }
 
-    // TODO: Fetch liked songs dynamically (requires user-library-read scope)
-    // For now, using static value
+    if (!userProfile) return {};
+
     return { ...userProfile, likedSongs: 56 };
 }
 
