@@ -5,6 +5,9 @@
 
     <link rel="preconnect" href="https://analytics.kuchizu.com">
     <link rel="dns-prefetch" href="https://analytics.kuchizu.com">
+    <link rel="preconnect" href="https://i.scdn.co" crossorigin>
+    <link rel="preconnect" href="https://cdn.akamai.steamstatic.com" crossorigin>
+    <link rel="prefetch" href="/api/data">
 
     <title>Kuchizu</title>
     <meta name="description" content="Kuchizu — DevOps Engineer" />
@@ -44,14 +47,14 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kuchizu","jobTitle":"DevOps Engineer","url":"https://kuchizu.com","image":"https://kuchizu.com/images/Kuchizu128x128.png","sameAs":["https://github.com/Kuchizu","https://t.me/Kuchizu","https://x.com/Kuchizu_"]}</script>
 </head>
 <body>
-    <div class="corner-info corner-time" id="corner-time"></div>
-    <div class="corner-info corner-ping" id="corner-ping"></div>
-    <div class="corner-info corner-resolution" id="corner-resolution"></div>
-    <div class="corner-info corner-load" id="corner-load"></div>
+    <div class="corner-info corner-time" id="corner-time" aria-hidden="true"></div>
+    <div class="corner-info corner-ping" id="corner-ping" aria-hidden="true"></div>
+    <div class="corner-info corner-resolution" id="corner-resolution" aria-hidden="true"></div>
+    <div class="corner-info corner-load" id="corner-load" aria-hidden="true"></div>
 
     <main class="layout">
         <!-- Left: 2x2 Grid -->
-        <aside class="sidebar sidebar-left">
+        <aside class="sidebar sidebar-left" aria-label="GitHub statistics and activity">
             <section class="github" id="github">
                 <div class="github-graph" id="github-graph">
                     <div class="skeleton" style="width:100%;height:56px"></div>
@@ -115,12 +118,12 @@
                 <span class="time" id="time"></span> · UTC+3 · <span id="updated"></span>
             </p>
 
-            <div class="uptime-badge" id="uptime-badge">
-                <span class="uptime-dot"></span>
+            <div class="uptime-badge" id="uptime-badge" role="status" aria-live="polite">
+                <span class="uptime-dot" aria-hidden="true"></span>
                 <span class="uptime-text">Checking...</span>
             </div>
 
-            <nav class="links">
+            <nav class="links" aria-label="Social links">
                 <a href="https://t.me/Kuchizu" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -139,7 +142,7 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <a href="#" id="email-btn" data-email="legolashacker0@gmail.com">
+                <a href="#" id="email-btn" role="button" data-email="legolashacker0@gmail.com">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
                     </svg>
@@ -174,10 +177,10 @@
         </div>
 
         <!-- Right: 2x2 Grid -->
-        <aside class="sidebar sidebar-right">
+        <aside class="sidebar sidebar-right" aria-label="Anime, servers, music and gaming">
             <section class="shikimori" id="shikimori">
                 <div class="shikimori-header">
-                    <img class="shikimori-avatar skeleton" id="shikimori-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+                    <img class="shikimori-avatar skeleton" id="shikimori-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Shikimori avatar">
                     <div class="shikimori-info">
                         <span class="shikimori-name" id="shikimori-name">...</span>
                         <span class="shikimori-stats" id="shikimori-stats"></span>
@@ -201,7 +204,7 @@
 
             <section class="spotify" id="spotify">
                 <div class="spotify-header">
-                    <img class="spotify-avatar skeleton" id="spotify-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+                    <img class="spotify-avatar skeleton" id="spotify-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Spotify avatar">
                     <div class="spotify-status">
                         <span class="spotify-name" id="spotify-name">...</span>
                         <span class="spotify-state" id="spotify-state"></span>
@@ -218,7 +221,7 @@
 
             <section class="steam" id="steam">
                 <div class="steam-header">
-                    <img class="steam-avatar skeleton" id="steam-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+                    <img class="steam-avatar skeleton" id="steam-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Steam avatar">
                     <div class="steam-status">
                         <span class="steam-name" id="steam-name">...</span>
                         <span class="steam-state" id="steam-state"></span>
@@ -237,16 +240,6 @@
         </aside>
     </main>
 
-    <script src="js/config.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/github.js"></script>
-    <script src="js/steam.js"></script>
-    <script src="js/spotify.js"></script>
-    <script src="js/shikimori.js"></script>
-    <script src="js/servers.js"></script>
-    <script src="js/typing.js"></script>
-    <script src="js/uptime.js"></script>
-    <script src="js/corners.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/bundle.js"></script>
 </body>
 </html>

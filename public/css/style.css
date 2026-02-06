@@ -268,6 +268,11 @@ h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-botto
 .corner-resolution { bottom: 1rem; left: 1rem; }
 .corner-load { bottom: 1rem; right: 1rem; }
 
+:focus-visible { outline: 2px solid #528bff; outline-offset: 2px; border-radius: 4px; }
+.links a:focus-visible { border-color: #528bff; outline: none; box-shadow: 0 0 0 2px #528bff; }
+.pinned-repo:focus-visible { border-color: #528bff; outline: none; box-shadow: 0 0 0 2px #528bff; }
+.spotify-track:focus-visible, .shikimori-anime:focus-visible, .spotify-current:focus-visible { outline: 2px solid #528bff; outline-offset: 1px; border-radius: 4px; }
+
 @media (max-width: 1000px) {
     .layout { grid-template-columns: 1fr; max-width: 360px; gap: 1.5rem; }
     .sidebar-left { justify-self: center; order: 2; grid-template-columns: repeat(2, 176px); }

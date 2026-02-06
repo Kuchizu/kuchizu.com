@@ -1,13 +1,19 @@
+FROM node:25-alpine AS build
+WORKDIR /app
+COPY public/ public/
+COPY scripts/bundle.js scripts/
+RUN node scripts/bundle.js
+
 FROM nginx:alpine
 
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY public/index.html /usr/share/nginx/html/
+COPY --from=build /app/public/index.html /usr/share/nginx/html/
 COPY public/404.html /usr/share/nginx/html/
 COPY public/robots.txt /usr/share/nginx/html/
 COPY public/sitemap.xml /usr/share/nginx/html/
 COPY public/css/ /usr/share/nginx/html/css/
-COPY public/js/ /usr/share/nginx/html/js/
+COPY --from=build /app/public/js/bundle.js /usr/share/nginx/html/js/bundle.js
 COPY public/images/ /usr/share/nginx/html/images/
 COPY .commit /usr/share/nginx/html/.commit
 

@@ -7,6 +7,14 @@ let currentData = null;
 let steamId = null;
 const sseClients = new Set();
 
+const metrics = {
+    startedAt: Date.now(),
+    requests: { stream: 0, status: 0, health: 0, metrics: 0 },
+    errors: 0,
+    polls: 0,
+    lastPollAt: null
+};
+
 async function resolveSteamId() {
     if (steamId) return steamId;
     if (/^\d{17}$/.test(USERNAME)) {
@@ -61,6 +69,8 @@ function broadcast(data) {
 
 // Poll Steam every 10 seconds and broadcast to all SSE clients
 async function pollLoop() {
+    metrics.polls++;
+    metrics.lastPollAt = new Date().toISOString();
     try {
         const data = await fetchStatus();
         if (data && !data.error) {
@@ -68,6 +78,7 @@ async function pollLoop() {
             broadcast(data);
         }
     } catch (e) {
+        metrics.errors++;
         console.error('Poll error:', e.message);
     }
     setTimeout(pollLoop, 10000);
@@ -79,12 +90,27 @@ const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     if (req.url === '/health') {
+        metrics.requests.health++;
         res.setHeader('Content-Type', 'text/plain');
         return res.end('ok');
     }
 
+    if (req.url === '/metrics') {
+        metrics.requests.metrics++;
+        res.setHeader('Content-Type', 'application/json');
+        return res.end(JSON.stringify({
+            uptime: Math.floor((Date.now() - metrics.startedAt) / 1000),
+            connections: sseClients.size,
+            requests: metrics.requests,
+            errors: metrics.errors,
+            polls: metrics.polls,
+            lastPollAt: metrics.lastPollAt
+        }));
+    }
+
     // SSE endpoint
     if (req.url === '/stream' || req.url === '/api/steam/stream') {
+        metrics.requests.stream++;
         res.setHeader('Content-Type', 'text/event-stream');
         res.setHeader('Cache-Control', 'no-cache');
         res.setHeader('Connection', 'keep-alive');
@@ -104,6 +130,7 @@ const server = http.createServer((req, res) => {
 
     // Legacy polling endpoint (fallback)
     if (req.url === '/status' || req.url === '/api/steam/status') {
+        metrics.requests.status++;
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(currentData || { error: 'unavailable' }));
         return;
