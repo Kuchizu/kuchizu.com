@@ -70,11 +70,14 @@ jobs:
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
           SERVERS: ${{ secrets.SERVERS }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SERVER_OFFLINE_ALERT_THRESHOLD: ${{ secrets.SERVER_OFFLINE_ALERT_THRESHOLD }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          envs: GITHUB_TOKEN,STEAM_API_KEY,SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,SERVERS
+          envs: GITHUB_TOKEN,STEAM_API_KEY,SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,SERVERS,TELEGRAM_BOT_TOKEN,TELEGRAM_CHAT_ID,SERVER_OFFLINE_ALERT_THRESHOLD
           script: |
             if [ ! -d "/root/kuchizu.com" ]; then
               git clone https://github.com/Kuchizu/kuchizu.com.git /root/kuchizu.com
@@ -104,7 +107,10 @@ jobs:
               --from-literal=SPOTIFY_CLIENT_ID="$SPOTIFY_CLIENT_ID" \
               --from-literal=SPOTIFY_CLIENT_SECRET="$SPOTIFY_CLIENT_SECRET" \
               --from-literal=SPOTIFY_REFRESH_TOKEN="$SPOTIFY_REFRESH_TOKEN" \
-              --from-literal=SERVERS="${SERVERS:-[]}"
+              --from-literal=SERVERS="${SERVERS:-[]}" \
+              --from-literal=TELEGRAM_BOT_TOKEN="$TELEGRAM_BOT_TOKEN" \
+              --from-literal=TELEGRAM_CHAT_ID="$TELEGRAM_CHAT_ID" \
+              --from-literal=SERVER_OFFLINE_ALERT_THRESHOLD="$SERVER_OFFLINE_ALERT_THRESHOLD"
             sudo kubectl apply -f k8s/
 
             # Restart all deployments
