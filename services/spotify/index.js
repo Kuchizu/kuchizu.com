@@ -13,8 +13,9 @@ let lastRecentFetch = 0;
 const sseClients = new Set();
 
 // Intervals
-const POLL_INTERVAL = 3000;           // Now playing: 3 seconds
-const RECENT_INTERVAL = 30000;        // Recent tracks: 30 seconds
+const POLL_INTERVAL_PLAYING = 8000;   // Now playing (active): 8 seconds
+const POLL_INTERVAL_IDLE = 20000;     // Now playing (idle): 20 seconds
+const RECENT_INTERVAL = 60000;        // Recent tracks: 60 seconds
 const PROFILE_INTERVAL = 600000;      // Profile: 10 minutes
 const PROFILE_RETRY_INTERVAL = 30000; // Retry on failure: 30 seconds
 
@@ -189,7 +190,8 @@ async function pollLoop() {
     } catch (e) {
         console.error('Poll error:', e.message);
     }
-    setTimeout(pollLoop, POLL_INTERVAL);
+    const interval = currentData?.playing ? POLL_INTERVAL_PLAYING : POLL_INTERVAL_IDLE;
+    setTimeout(pollLoop, interval);
 }
 
 // Start profile fetch immediately, then poll loop
