@@ -9,6 +9,7 @@ COPY public/sitemap.xml /usr/share/nginx/html/
 COPY public/css/ /usr/share/nginx/html/css/
 COPY public/js/ /usr/share/nginx/html/js/
 COPY public/images/ /usr/share/nginx/html/images/
+COPY public/media/ /usr/share/nginx/html/media/
 COPY .commit /usr/share/nginx/html/.commit
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf

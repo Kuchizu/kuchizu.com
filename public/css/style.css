@@ -1,6 +1,6 @@
 :root {
     --bg: #09090b;
-    --surface: #18181b;
+    --surface: rgba(24, 24, 27, 0.75);
     --border: #27272a;
     --fg: #fafafa;
     --fg-muted: #71717a;
@@ -261,6 +261,21 @@ h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-botto
 .shikimori-anime-eps { font-size: 0.55rem; color: var(--fg-muted); }
 
 .shikimori-footer { margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px solid var(--border); font-size: 0.6rem; color: var(--fg-muted); }
+
+.bg-video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+body::after { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at center, rgba(9, 9, 11, 0.8) 0%, rgba(9, 9, 11, 0.95) 100%); }
+@media (prefers-reduced-motion: reduce) { .bg-video { visibility: hidden; } }
+
+.splash { position: fixed; inset: 0; z-index: 200; width: 100%; display: flex; align-items: center; justify-content: center; background: rgba(9, 9, 11, 0.3); border: 0; color: var(--fg); font: inherit; font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer; transition: opacity 0.6s ease, visibility 0.6s; }
+.splash span { animation: pulse 2s ease-in-out infinite; }
+.splash.gone { opacity: 0; visibility: hidden; }
+.splash:not(.gone) ~ *, .splash:not(.gone) ~ * * { animation-play-state: paused; }
+
+.sound-btn { display: inline-flex; margin-left: 0.25rem; padding: 0; background: none; border: 0; color: var(--fg-muted); cursor: pointer; transition: color 0.2s; }
+.sound-btn:hover, .sound-btn[aria-pressed="true"] { color: var(--fg); }
+.sound-btn svg { width: 0.85rem; height: 0.85rem; }
+.sound-btn .sound-on, .sound-btn[aria-pressed="true"] .sound-off { display: none; }
+.sound-btn[aria-pressed="true"] .sound-on { display: inline; }
 
 .corner-info { position: fixed; font-size: 0.65rem; color: var(--fg-muted); font-family: 'SF Mono', 'Fira Code', monospace; font-variant-numeric: tabular-nums; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 0.8s; z-index: 100; }
 .corner-time { top: 1rem; left: 1rem; }

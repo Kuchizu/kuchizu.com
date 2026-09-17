@@ -4,6 +4,24 @@ initTime();
 initEmail();
 loadGitHubData();
 loadPodInfo();
+initMusic();
+
+function initMusic() {
+    const video = document.getElementById('bg-video');
+    const btn = document.getElementById('sound-btn');
+    const splash = document.getElementById('splash');
+    const setMuted = (muted) => {
+        video.muted = muted;
+        btn.setAttribute('aria-pressed', String(!muted));
+        video.play().catch(() => {});
+    };
+    btn.addEventListener('click', () => setMuted(!video.muted));
+    // Browsers block sound until the first interaction, the splash click provides it
+    splash.addEventListener('click', () => {
+        splash.classList.add('gone');
+        setMuted(false);
+    }, { once: true });
+}
 
 async function loadPodInfo() {
     try {

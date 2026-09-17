@@ -44,6 +44,9 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kuchizu","jobTitle":"DevOps Engineer","url":"https://kuchizu.com","image":"https://kuchizu.com/images/Kuchizu128x128.png","sameAs":["https://github.com/Kuchizu","https://t.me/Kuchizu","https://x.com/Kuchizu_"]}</script>
 </head>
 <body>
+    <button class="splash" id="splash" type="button"><span>click to enter</span></button>
+    <video class="bg-video" id="bg-video" src="media/bg.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+
     <div class="corner-info corner-time" id="corner-time"></div>
     <div class="corner-info corner-ping" id="corner-ping"></div>
     <div class="corner-info corner-resolution" id="corner-resolution"></div>
@@ -170,6 +173,13 @@
 
             <footer class="footer">
                 © 2026 · <span class="pod-info" id="pod-info" title="Kubernetes Pod"></span>
+                <button class="sound-btn" id="sound-btn" type="button" aria-label="Music" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 5 6 9H2v6h4l5 4V5z"/>
+                        <path class="sound-on" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>
+                        <path class="sound-off" d="m16 9 6 6m0-6-6 6"/>
+                    </svg>
+                </button>
             </footer>
         </div>
 
