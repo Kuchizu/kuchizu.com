@@ -36,7 +36,7 @@ async function getSteamData() {
             name: g.name,
             playtime_2weeks: Math.round(g.playtime_2weeks / 60),
             playtime_forever: Math.round(g.playtime_forever / 60),
-            icon: `https://media.steampowered.com/steamcommunity/public/images/apps/${g.appid}/${g.img_icon_url}.jpg`
+            icon: `https://shared.fastly.steamstatic.com/community_assets/images/apps/${g.appid}/${g.img_icon_url}.jpg`
         }));
 
         return {

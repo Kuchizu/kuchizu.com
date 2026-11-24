@@ -283,7 +283,7 @@ body::after { content: ''; position: fixed; inset: 0; z-index: -1; pointer-event
 .corner-resolution { bottom: 1rem; left: 1rem; }
 .corner-load { bottom: 1rem; right: 1rem; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1180px) {
     .layout { grid-template-columns: 1fr; max-width: 360px; gap: 1.5rem; }
     .sidebar-left { justify-self: center; order: 2; grid-template-columns: repeat(2, 176px); }
     .center { order: 1; }
